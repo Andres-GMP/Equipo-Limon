@@ -15,7 +15,7 @@ Integrantes:
 >
 >[@AxelEnciso](https://github.com/AxelTEC)
 >
->[@OmarAdrian]()
+>[@OmarAdrian](https://github.com/Haztry)
 >
 >[@AndrésGonzalez](https://github.com/Andres-GMP)
 >
