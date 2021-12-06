@@ -1,7 +1,6 @@
 package pilagenerica;
 
 public class NodoPila {
-
     private NodoPila enlace;
     private Object   data;
 

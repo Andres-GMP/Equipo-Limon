@@ -2,7 +2,6 @@ package pilagenerica;
 
 public class Pila {
     private NodoPila cima;
-
     public Pila() {
         this.cima = null;
     }
