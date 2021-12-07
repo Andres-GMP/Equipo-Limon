@@ -1,4 +1,4 @@
-package EquipoLimonEstructura;
+package limonproject;
 
 import java.io.BufferedReader;
 import java.util.ArrayList;

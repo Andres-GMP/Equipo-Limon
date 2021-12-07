@@ -1,4 +1,4 @@
-package EquipoLimonEstructura;
+package limonproject;
 
 public class Persona {
     private String nombre;

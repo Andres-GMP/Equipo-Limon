@@ -1,4 +1,4 @@
-package EquipoLimonEstructura.ABB;
+package limonproject.ABB;
 //ando queriendo probar algo
 public class Nodo {
     //CAMBIAR EL TIPO DE DATO

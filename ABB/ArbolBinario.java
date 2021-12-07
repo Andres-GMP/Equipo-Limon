@@ -1,4 +1,4 @@
-package EquipoLimonEstructura.ABB;
+package limonproject.ABB;
 import java.nio.charset.StandardCharsets;
 
 public class ArbolBinario {
