@@ -25,9 +25,8 @@ public class Trabajadores {
             System.out.println("\n\t+--+------MENU DE OPCIONES------------+");
             System.out.println("\t|1.| DAR DE ALTA  (TRABAJADOR)        |");
             System.out.println("\t|2.| DAR DE BAJA  (TRABAJADOR)        |");
-            System.out.println("\t|3.| CONSULTAS EMPLEADO ORDEN/ALTA    |");
-            System.out.println("\t|4.| CONSULTAS EMPLEADO ORDEN/POR ID  |");
-            System.out.println("\t|5.| MODIFICAR DATOS DE UN TRABAJADOR |");
+            System.out.println("\t|3.| CONSULTAS EMPLEADO  (POR ID)     |");
+            System.out.println("\t|5.| ELIMINAR UN TRABAJADOR           |");
             System.out.println("\t|6.| SALIR DEL SISTEMA                |");
             System.out.println("\t+--+----------------------------------+");
 
