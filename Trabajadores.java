@@ -10,11 +10,12 @@ import limonproject.ABB.Nodo;
 
 public class Trabajadores {
 
+    static ArbolBinario arbolTrabajadores = new ArbolBinario();
     public static void main(String[] args) throws Exception {
 
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
         ArrayList<Integer> idList = new ArrayList<Integer>();
-        ArbolBinario arbolTrabajadores = new ArbolBinario();
+        
 
         int opcion;
         boolean salir = false;
@@ -131,7 +132,7 @@ public class Trabajadores {
                         try {
                             System.out.println("\n\tINTRODUCE EL ID DEL TRABAJADOR A MODIFICAR (4 DIGITOS)");
                             ide = Integer.parseInt(lector.readLine());
-
+                            modificar(ide);
                             // listaTrabajadores.modificar(ide);
                         } catch (Exception e) {
                             System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
@@ -165,16 +166,16 @@ public class Trabajadores {
     }
 
     //METODO PARA MODIFICAR
-    public void modificar(int id) throws Exception{
+    public static void modificar(int id) throws Exception{
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
         Nodo actual = arbolTrabajadores.busqueda(id);
         System.out.println("¿DESEA MODIFICAR TODOS LOS DATOS O SOLO UN CAMPO?");
-        int res = Integer.parseInt(lector.readLine());
         System.out.println("\t+--+---------------------+");
         System.out.println("\t|1.| TODOS LOS DATOS     |");
         System.out.println("\t|2.| CAMPO EN ESPECIFICO |");
         System.out.println("\t|3.| CANCELAR            |"); 
-        System.out.println("\t+--+---------------------+"); 
+        System.out.println("\t+--+---------------------+");
+        int res = Integer.parseInt(lector.readLine()); 
         switch (res) {
             case 1:
             try {
@@ -200,8 +201,8 @@ public class Trabajadores {
                 String pues = lector.readLine();
 
                 // INSERTAMOS AL ARBOL LA INFORMACIÓN ACTUALIZADA DE UN TRABAJADOR
-                actual.nuevoValor(new Trabajador(nom, apeP, apeM, edad, gene, id, suel, pues));
-                arbolTrabajadores.modificar(id, actual);
+                arbolTrabajadores.modificar(id,new Trabajador(nom, apeP, apeM, edad, gene, id, suel, pues));
+                
                 System.out.println("\tDATOS MODIFICADOS CORRECTAMENTE");
 
             } catch (InputMismatchException e) {
@@ -215,7 +216,7 @@ public class Trabajadores {
             boolean encontrado;
             encontrado = false;
 
-                encontrado = (Trabajador(actual.valorNodo())).getId() == id;
+                encontrado = (actual.valorNodo()).getId() == id;
                 if(encontrado)
                 {
                     System.out.println("\tQUE APARTADO DESEAS MODIFICAR?");
@@ -237,7 +238,7 @@ public class Trabajadores {
                                 case 1:
                                 System.out.println("\n\tMODIFICA TU NOMBRE");
                                 String nom  = lector.readLine();
-                                (arbolTrabajadores.busqueda(id).getData()).setNombre(nom);
+                                (arbolTrabajadores.busqueda(id).valorNodo()).setNombre(nom);
                                 // ((Trabajador) actual.getData()).setNombre(nom);
                 
                                 break;
@@ -245,37 +246,37 @@ public class Trabajadores {
                                 case 2:
                                 System.out.println("\tMODIFICA TU APELLIDO PATERNO");
                                 String apeP  = lector.readLine();
-                                ((Trabajador) actual.getData()).setApellidoP(apeP);
+                                // ((Trabajador) actual.getData()).setApellidoP(apeP);
                                 break;
     
                                 case 3:
                                 System.out.println("\tMODIFICA TU APELLIDO MATERNO");
                                 String apeM  = lector.readLine();
-                                ((Trabajador) actual.getData()).setApellidoM(apeM);
+                                // ((Trabajador) actual.getData()).setApellidoM(apeM);
                                 break;
     
                                 case 4:
                                 System.out.println("\tMODIFICA TU EDAD");
                                 int edad = Integer.parseInt(lector.readLine());
-                                ((Trabajador) actual.getData()).setEdad(edad);
+                                // ((Trabajador) actual.getData()).setEdad(edad);
                                 break;
     
                                 case 5:
                                 System.out.println("\tMODIFICA TU GENERO");
                                 String gene = lector.readLine();
-                                ((Trabajador) actual.getData()).setGenero(gene);
+                                // ((Trabajador) actual.getData()).setGenero(gene);
                                 break;
     
                                 case 6:
                                 System.out.println("\tMODIFICA TU SUELDO");
                                 double suel = Double.parseDouble(lector.readLine());
-                                ((Trabajador) actual.getData()).setSueldo(suel);
+                                // ((Trabajador) actual.getData()).setSueldo(suel);
                                 break;
     
                                 case 7:
                                 System.out.println("\tMODIFICA TU PUESTO");
                                 String pues = lector.readLine();
-                                ((Trabajador) actual.getData()).setPuesto(pues);
+                                // ((Trabajador) actual.getData()).setPuesto(pues);
                                 break;
     
                                 default:
@@ -302,5 +303,6 @@ public class Trabajadores {
             System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                 break;
         }
+        System.out.println("!");
     }
 }
