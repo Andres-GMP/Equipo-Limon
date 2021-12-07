@@ -22,9 +22,9 @@ public class testOrdenamiento {
         while(!salir){
 
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t+--+---------MENU DE OPCIONES---------+");
-            System.out.println("\t|1.| INSERTAR EL ARBOL BINARIO        |");
-            System.out.println("\t|2.| BUSQUEDA BINARIA (ARBOL)         |");
-            System.out.println("\t|3.| ARBOLES BINARIO ORDENADO         |");
+            System.out.println("\t|1.| INSERTAR TRABAJADORES            |");
+            System.out.println("\t|2.| DAR DE BAJA TRABAJADOR           |");
+            System.out.println("\t|3.| BUSCAR UN TRABAJADOR (POR ID)    |");
             System.out.println("\t|4.| SALIR DEL SISTEMA                |");
             System.out.println("\t+--+----------------------------------+");
             System.out.println("\t|        SELECCIONA UNA OPCION        |");
@@ -39,7 +39,7 @@ public class testOrdenamiento {
             case 1:
                 do{
                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                System.out.println("\t       INGRESA EL NUMERO DEL NODO      ");
+                System.out.println("\t     GENERANDO ID DEL TRABAJADOR      ");
                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 elemento = lector.nextInt();
                 arbol.agregarNodo(elemento);
