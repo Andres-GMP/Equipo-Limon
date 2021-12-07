@@ -164,7 +164,6 @@ public class Trabajadores {
     //METODO PARA MODIFICAR
     public void modificar(int id) throws Exception{
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
-        NodoLista actual = primero;
         boolean encontrado;
         encontrado = false;
         
