@@ -302,7 +302,10 @@ public class Trabajadores {
                                 }
                         break;
                 }
-                    System.out.println("DESEA MODIFICAR OTRO DATO");                    
+                
+                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~\n");
+                System.out.println("DESEA MODIFICAR OTRO DATO");
+                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~\n");                    
                     si=respuesta();
 
                 break;
