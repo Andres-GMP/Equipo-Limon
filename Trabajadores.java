@@ -11,7 +11,7 @@ import sistematrabajadores.Trabajador;
 public class Trabajadores {
     
     public static void main(String[] args) throws Exception{
-        Scanner lector = new Scanner(System.in);     
+     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));     
         
         ArrayList<Integer> idList = new ArrayList<Integer>();
         ListaGenerica listaTrabajadores = new ListaGenerica();
