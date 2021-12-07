@@ -1,5 +1,7 @@
 package limonproject.ABB;
 
+import limonproject.*;
+
 //ando queriendo probar algo
 public class Nodo {
     // CAMBIAR EL TIPO DE DATO
