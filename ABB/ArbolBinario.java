@@ -152,7 +152,7 @@ public class ArbolBinario {
     {
         Nodo eliminar = busqueda(datoEliminar);
         
-        if(eliminar == datoEliminar)
+        if(eliminar == null)
         {
             return null;
         }
