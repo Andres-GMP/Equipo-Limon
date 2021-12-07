@@ -93,17 +93,17 @@ public class Trabajadores {
                 case 2:
 
                 System.out.println("\n\tINTRODUCE EL ID DEL TRABAJADOR A ELIMINAR (4 DIGITOS)");
-                int ide = lector.nextInt();
+                ide = Integer.parseInt(lector.readLine());
 
                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 System.out.println("\tESTAS SEGURO DE ELIMINAR AL TRABAJADOR ? (SI/NO)");
                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                String opciones = lector.next();
+                opciones = lector.readLine();
 
                 try{
                 if(opciones.equals("SI"))
                 {
-                    listaTrabajadores.eliminar(ide);
+                    //listaTrabajadores.eliminar(ide);
                     System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     System.out.println("\t|   SE HA ELIMINADO CORRECTAMENTE     |");
                     System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
@@ -128,14 +128,14 @@ public class Trabajadores {
                 //CASO #3 MOSTRAMOS LA TABLA DE LOS TRABAJADORES EN ORDE QUE LOS INSERTE
                 case 3:
                 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                listaTrabajadores.imprimir();
+                
                 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 break;
 
                 //CASO #4 MOSTRAMOS LA TABLA DE LOS TRABAJADORES EN ORDEN ASCENDENTE POR ID
                 case 4:
                 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES POR ID~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                listaTrabajadores.Lista().burbuja().imprimir();
+                
                 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 break;
 
@@ -143,9 +143,9 @@ public class Trabajadores {
                 case 5:
                 try{
                 System.out.println("\n\tINTRODUCE EL ID DEL TRABAJADOR A MODIFICAR (4 DIGITOS)");
-                ide = lector.nextInt();
+                ide = Integer.parseInt(lector.readLine());
 
-                listaTrabajadores.modificar(ide);
+                //listaTrabajadores.modificar(ide);
                 }catch(Exception e){
                 System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
                 }
