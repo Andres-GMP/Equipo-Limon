@@ -67,13 +67,13 @@ public class Trabajadores {
                 int edad = lector.nextInt();
 
                 System.out.println("\tINTRODUCIR TU GENERO (M/F)");
-                String gene = lector.next();
+                gene = Integer.parseInt(lector.readLine());
 
                 System.out.println("\tINTRODUCIR TU SUELDO");
-                double suel = lector.nextDouble();
-
+                suel = Integer.parseInt(lector.readLine());
+                    
                 System.out.println("\tINTRODUCIR TU PUESTO");
-                String pues = lector.next();
+                pues = Integer.parseInt(lector.readLine());
                 
                 //INSERTAMOS A LA LISTA UN NUEVO TRABAJADOR
                 listaTrabajadores.insertarInicio(new Trabajador(nom, apeP , apeM , edad , gene , id , suel , pues)); 
