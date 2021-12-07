@@ -1,5 +1,6 @@
 package limonproject.ABB;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 import limonproject.Trabajador;
@@ -117,7 +118,7 @@ public class ArbolBinario {
         // raiz
         Nodo aux = this.raiz;
         //
-        while (Integer.parseInt(aux.valorNodo().getId()) != datoBusqueda) {
+        while (aux.valorNodo().getId() != datoBusqueda) {
             if (datoBusqueda < aux.valorNodo().getId()) {
                 aux = aux.izq;
             } else {
@@ -143,6 +144,33 @@ public class ArbolBinario {
             raiz = new Nodo(newData);
         else
             raiz.insertar(newData);
+    }
+
+    //Eliminar un TRABAJADOR....
+
+    public Nodo eliminarNodo(int datoEliminar) throws IOException
+    {
+        Nodo eliminar = busqueda(datoEliminar);
+        
+        if(eliminar == datoEliminar)
+        {
+            return null;
+        }
+        Nodo izq,der;
+
+        izq = eliminar.izq;
+        der = eliminar.der;
+
+        eliminar = null;
+
+        if(izq != null) this.raiz.insertar(izq.valorNodo());
+        if(der != null) this.raiz.insertar(der.valorNodo());
+       
+       
+        
+    return null;
+
+
     }
 
     /*

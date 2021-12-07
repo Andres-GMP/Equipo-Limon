@@ -95,10 +95,12 @@ public class Trabajadores {
                         System.out.println("\tESTAS SEGURO DE ELIMINAR AL TRABAJADOR ? (SI/NO)");
                         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         String opciones = lector.readLine();
+                        
 
                         try {
                             if (opciones.equals("SI")) {
-                                // listaTrabajadores.eliminar(ide);
+                                 arbolTrabajadores.eliminarNodo(ide);
+                                 
                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 System.out.println("\t|   SE HA ELIMINADO CORRECTAMENTE     |");
                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
