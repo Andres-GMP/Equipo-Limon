@@ -1,4 +1,4 @@
-package ABB;
+package EquipoLimonEstructura;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -11,8 +11,8 @@ import sistematrabajadores.Trabajador;
 public class Trabajadores {
     
     public static void main(String[] args) throws Exception{
-     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));     
         
+        BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));     
         ArrayList<Integer> idList = new ArrayList<Integer>();
         ListaGenerica listaTrabajadores = new ListaGenerica();
 
@@ -33,7 +33,6 @@ public class Trabajadores {
             try{
             System.out.println("\t|        SELECCIONA UNA OPCION        |");
             System.out.println("\t+--+----------------------------------+");
-            opcion = lector.nextInt();
                 
             switch(opcion){
 
