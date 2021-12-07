@@ -83,4 +83,8 @@ public class ArbolBinarios {
     public boolean esVacio(){
         return raiz == null;
     }
+    
+    public void metodo(){
+
+    }
 }
