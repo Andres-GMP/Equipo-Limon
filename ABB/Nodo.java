@@ -2,7 +2,7 @@ package EquipoLimonEstructura.ABB;
 //ando queriendo probar algo
 public class Nodo {
     //CAMBIAR EL TIPO DE DATO
-    protected Object dato;
+    protected Trabajador dato;
     protected Nodo izq;
     protected Nodo der;
     
@@ -10,7 +10,7 @@ public class Nodo {
      * Constructor que inicializa el nodo con el valor que le ingreses, las ramas izquierda y derecha son nulas
      * @param valor
      */
-    public Nodo(Object valor) {
+    public Nodo(Trabajador valor) {
         this.dato = valor;
         this.izq = null;
         this.der = null;
@@ -22,7 +22,7 @@ public class Nodo {
      * @param valor
      * @param ramaDcho
      */
-    public Nodo(Nodo ramaIzdo, Object valor, Nodo ramaDcho) {
+    public Nodo(Nodo ramaIzdo, Trabajador valor, Nodo ramaDcho) {
         dato = valor;
         izq = ramaIzdo;
         der = ramaDcho;
@@ -31,7 +31,7 @@ public class Nodo {
      * Regresa el valor del nodo
      * @return data del nodo
      */
-    public Object valorNodo() {
+    public Trabajador valorNodo() {
         return dato;
     }
     /**
@@ -51,7 +51,7 @@ public class Nodo {
     /**
      * Asigna un nuevo valor al nodo
      */
-    public void nuevoValor(Object valor) {
+    public void nuevoValor(Trabajador valor) {
         this.dato = valor;
     }
     /**

@@ -53,7 +53,7 @@ public class Trabajadores {
                 idList.add(id);
 
                 try{
-
+                    
                 System.out.println("\n\tINTRODUCIR TU NOMBRE");
                 nom = lector.readLine();
 

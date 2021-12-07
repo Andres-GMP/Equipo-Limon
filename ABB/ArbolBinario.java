@@ -34,7 +34,7 @@ public class ArbolBinario {
      * @param ramaDcho
      * @return
      */
-    public static Nodo nuevoArbol(Nodo ramaIzdo, Object valor, Nodo ramaDcho) {
+    public static Nodo nuevoArbol(Nodo ramaIzdo, Trabajador valor, Nodo ramaDcho) {
         return new Nodo(ramaIzdo, valor, ramaDcho);
     }    
     /**
@@ -117,11 +117,11 @@ public class ArbolBinario {
 
 
 /**
- * Método que agrega nodos a un árbol de tipo Object
+ * Método que agrega nodos a un árbol de tipo Trabajador
  * @param elemento
  * @param busqueda
  */
-    public void agregarNodo(Object elemento, ArbolBinario busqueda){
+    public void agregarNodo(Trabajador elemento, ArbolBinario busqueda){
         Nodo nuevo = new Nodo(elemento);
         if(raiz == null){
             raiz = nuevo;
