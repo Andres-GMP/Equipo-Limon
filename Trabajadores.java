@@ -74,7 +74,8 @@ public class Trabajadores {
                             System.out.println("\tINTRODUCIR TU PUESTO");
                             String pues = lector.readLine();
 
-                            System.out.println(id);
+                            System.out.println("GENERANDO ID...");
+                            System.out.println("EL ID ES:" +id);
                             // INSERTAMOS AL ARBOL UN NUEVO TRABAJADOR
                             arbolTrabajadores.agregarNodo(new Trabajador(nom, apeP, apeM, edad, gene, id, suel, pues));
                             System.out.println("\tHAS INSERTADO CORRECTAMENTE");
