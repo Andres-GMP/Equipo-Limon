@@ -24,7 +24,7 @@ public class Trabajadores {
             System.out.println("\t|1.| DAR DE ALTA  (TRABAJADOR)        |");
             System.out.println("\t|2.| DAR DE BAJA  (TRABAJADOR)        |");
             System.out.println("\t|3.| CONSULTAS EMPLEADO  (POR ID)     |");
-            System.out.println("\t|5.| ELIMINAR UN TRABAJADOR           |");
+            System.out.println("\t|5.| MODIFICAR UN TRABAJADOR          |");
             System.out.println("\t|6.| SALIR DEL SISTEMA                |");
             System.out.println("\t+--+----------------------------------+");
 
@@ -63,7 +63,7 @@ public class Trabajadores {
                             System.out.println("\tINTRODUCIR TU EDAD");
                             int edad = Integer.parseInt(lector.readLine());
 
-                            System.out.println("\tINTRODUCIR TU GENERO (M/F)");
+                            System.out.println("\tINTRODUCIR TU GENERO");
                             String gene = lector.readLine();
 
                             System.out.println("\tINTRODUCIR TU SUELDO");
@@ -72,9 +72,7 @@ public class Trabajadores {
                             System.out.println("\tINTRODUCIR TU PUESTO");
                             String pues = lector.readLine();
 
-                            // INSERTAMOS A LA LISTA UN NUEVO TRABAJADOR
-                            // String nombre, String apellidoPaterno, String apellidoMaterno, int
-                            // edad,String genero, String id, double sueldo, String puesto
+                            // INSERTAMOS AL ARBOL UN NUEVO TRABAJADOR
                             arbolTrabajadores.agregarNodo(new Trabajador(nom, apeP, apeM, edad, gene, id, suel, pues));
                             System.out.println("\tHAS INSERTADO CORRECTAMENTE");
 
