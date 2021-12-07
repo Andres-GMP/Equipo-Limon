@@ -132,7 +132,19 @@ public class ArbolBinario {
         System.out.println("Dato encontrado");
         return aux;
     }
+    
+    public void modificar(int datoBusqueda, Trabajador empleado) {
+       
+       if(busqueda(datoBusqueda)!=null){
+            busqueda(datoBusqueda).nuevoValor(empleado);
+       }else{
+           System.out.println("Trabajador no encontrado");
+       }
+      
 
+    }
+
+    
     /**
      * Método que agrega nodos a un árbol de tipo Trabajador
      * 
@@ -146,6 +158,7 @@ public class ArbolBinario {
             raiz.insertar(newData);
     }
 
+<<<<<<< HEAD
     //Eliminar un TRABAJADOR....
 
     public Nodo eliminarNodo(int datoEliminar) throws IOException
@@ -172,6 +185,8 @@ public class ArbolBinario {
 
 
     }
+=======
+>>>>>>> f405f8bc875cf809d4ca362496a645a178f2dc3d
 
     /*
      * public void agregarNodo(Trabajador elemento, ArbolBinario busqueda) {

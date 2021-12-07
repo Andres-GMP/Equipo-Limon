@@ -24,8 +24,8 @@ public class Trabajadores {
             System.out.println("\t|1.| DAR DE ALTA  (TRABAJADOR)        |");
             System.out.println("\t|2.| DAR DE BAJA  (TRABAJADOR)        |");
             System.out.println("\t|3.| CONSULTAS EMPLEADO  (POR ID)     |");
-            System.out.println("\t|5.| MODIFICAR UN TRABAJADOR          |");
-            System.out.println("\t|6.| SALIR DEL SISTEMA                |");
+            System.out.println("\t|4.| MODIFICAR UN TRABAJADOR          |");
+            System.out.println("\t|5.| SALIR DEL SISTEMA                |");
             System.out.println("\t+--+----------------------------------+");
 
             try {
@@ -118,26 +118,15 @@ public class Trabajadores {
                         }
                         break;
 
-                    // CASO #3 MOSTRAMOS LA TABLA DE LOS TRABAJADORES EN ORDE QUE LOS INSERTE
+                    // CASO #3 MOSTRAMOS EL ARBOL DE LOS TRABAJADORES INSERTADOS
                     case 3:
-                        System.out.println(
-                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-                        System.out.println(
-                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         break;
 
-                    // CASO #4 MOSTRAMOS LA TABLA DE LOS TRABAJADORES EN ORDEN ASCENDENTE POR ID
+                    // CASO #4 MODIFICACION A LOS DATOS DE LOS TRABAJADORES
                     case 4:
-                        System.out.println(
-                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES POR ID~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
-                        System.out.println(
-                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        break;
-
-                    // CASO #5 MODIFICACION A LOS DATOS DE LOS TRABAJADORES
-                    case 5:
                         try {
                             System.out.println("\n\tINTRODUCE EL ID DEL TRABAJADOR A MODIFICAR (4 DIGITOS)");
                             ide = Integer.parseInt(lector.readLine());
@@ -148,7 +137,8 @@ public class Trabajadores {
                         }
                         break;
 
-                    case 6:
+                    // CASO #5 CERRAR EL PROGRAMA
+                    case 5:
                         salir = true;
                         break;
 
@@ -173,4 +163,95 @@ public class Trabajadores {
 
     }
 
+    //METODO PARA MODIFICAR
+    public void modificar(int id) throws Exception{
+        BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
+        boolean encontrado;
+        encontrado = false;
+        
+        while ((actual.getData() != null)) 
+        {
+            encontrado = Trabajador.class.cast(actual.getData()).getId() == id;
+            if(encontrado)
+            {
+                System.out.println("\tQUE APARTADO DESEAS MODIFICAR?");
+                System.out.println("\t+--+------------+");
+                System.out.println("\t|1.| NOMBRE     |");
+                System.out.println("\t|2.| APELLIDO P |");
+                System.out.println("\t|3.| APELLIDO M |");
+                System.out.println("\t|4.| EDAD       |");
+                System.out.println("\t|5.| GENERO     |");
+                System.out.println("\t|6.| SUELDO     |");
+                System.out.println("\t|7.| PUESTO     |");
+                System.out.println("\t+--+------------+");
+
+                
+                try{
+                        int opciones = Integer.parseInt(lector.readLine());
+
+                        switch(opciones){
+                            case 1:
+                            System.out.println("\n\tMODIFICA TU NOMBRE");
+                            String nom  = lector.readLine();
+                            ((Trabajador) actual.getData()).setNombre(nom);
+            
+                            break;
+                            
+                            case 2:
+                            System.out.println("\tMODIFICA TU APELLIDO PATERNO");
+                            String apeP  = lector.readLine();
+                            ((Trabajador) actual.getData()).setApellidoP(apeP);
+                            break;
+
+                            case 3:
+                            System.out.println("\tMODIFICA TU APELLIDO MATERNO");
+                            String apeM  = lector.readLine();
+                            ((Trabajador) actual.getData()).setApellidoM(apeM);
+                            break;
+
+                            case 4:
+                            System.out.println("\tMODIFICA TU EDAD");
+                            int edad = Integer.parseInt(lector.readLine());
+                            ((Trabajador) actual.getData()).setEdad(edad);
+                            break;
+
+                            case 5:
+                            System.out.println("\tMODIFICA TU GENERO");
+                            String gene = lector.readLine();
+                            ((Trabajador) actual.getData()).setGenero(gene);
+                            break;
+
+                            case 6:
+                            System.out.println("\tMODIFICA TU SUELDO");
+                            double suel = Double.parseDouble(lector.readLine());
+                            ((Trabajador) actual.getData()).setSueldo(suel);
+                            break;
+
+                            case 7:
+                            System.out.println("\tMODIFICA TU PUESTO");
+                            String pues = lector.readLine();
+                            ((Trabajador) actual.getData()).setPuesto(pues);
+                            break;
+
+                            default:
+                            System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
+                            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+
+                    }
+                    
+
+                }catch(InputMismatchException e ){
+                    System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
+                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                    lector.readLine();
+                    }
+                    break;
+             }
+             actual = actual.getEnlace();
+
+        }
+        
+    }
 }
