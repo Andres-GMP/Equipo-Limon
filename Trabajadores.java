@@ -1,5 +1,6 @@
 package EquipoLimonEstructura;
 
+import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Random;
@@ -33,7 +34,7 @@ public class Trabajadores {
             try{
             System.out.println("\t|        SELECCIONA UNA OPCION        |");
             System.out.println("\t+--+----------------------------------+");
-                
+            opcion = Integer.parseInt(lector.readLine());    
             switch(opcion){
 
                 //CASO #1 DAR DE ALTA AL TRABAJADOR
