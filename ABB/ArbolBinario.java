@@ -157,6 +157,100 @@ public class ArbolBinario {
             raiz.insertar(newData);
     }
 
+    
+    //METODO PARA MODIFICAR
+    public void modificar(int id) throws Exception{
+        BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
+        NodoLista actual = primero;
+        boolean encontrado;
+        encontrado = false;
+        
+        while ((actual.getData() != null)) 
+        {
+            encontrado = Trabajador.class.cast(actual.getData()).getId() == id;
+            if(encontrado)
+            {
+                System.out.println("\tQUE APARTADO DESEAS MODIFICAR?");
+                System.out.println("\t+--+------------+");
+                System.out.println("\t|1.| NOMBRE     |");
+                System.out.println("\t|2.| APELLIDO P |");
+                System.out.println("\t|3.| APELLIDO M |");
+                System.out.println("\t|4.| EDAD       |");
+                System.out.println("\t|5.| GENERO     |");
+                System.out.println("\t|6.| SUELDO     |");
+                System.out.println("\t|7.| PUESTO     |");
+                System.out.println("\t+--+------------+");
+
+                
+                try{
+                        int opciones = Integer.parseInt(lector.readLine());
+
+                        switch(opciones){
+                            case 1:
+                            System.out.println("\n\tMODIFICA TU NOMBRE");
+                            String nom  = lector.readLine();
+                            ((Trabajador) actual.getData()).setNombre(nom);
+            
+                            break;
+                            
+                            case 2:
+                            System.out.println("\tMODIFICA TU APELLIDO PATERNO");
+                            String apeP  = lector.readLine();
+                            ((Trabajador) actual.getData()).setApellidoP(apeP);
+                            break;
+
+                            case 3:
+                            System.out.println("\tMODIFICA TU APELLIDO MATERNO");
+                            String apeM  = lector.readLine();
+                            ((Trabajador) actual.getData()).setApellidoM(apeM);
+                            break;
+
+                            case 4:
+                            System.out.println("\tMODIFICA TU EDAD");
+                            int edad = Integer.parseInt(lector.readLine());
+                            ((Trabajador) actual.getData()).setEdad(edad);
+                            break;
+
+                            case 5:
+                            System.out.println("\tMODIFICA TU GENERO");
+                            String gene = lector.readLine();
+                            ((Trabajador) actual.getData()).setGenero(gene);
+                            break;
+
+                            case 6:
+                            System.out.println("\tMODIFICA TU SUELDO");
+                            double suel = Double.parseDouble(lector.readLine());
+                            ((Trabajador) actual.getData()).setSueldo(suel);
+                            break;
+
+                            case 7:
+                            System.out.println("\tMODIFICA TU PUESTO");
+                            String pues = lector.readLine();
+                            ((Trabajador) actual.getData()).setPuesto(pues);
+                            break;
+
+                            default:
+                            System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
+                            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+
+                    }
+                    
+
+                }catch(InputMismatchException e ){
+                    System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
+                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                    lector.readLine();
+                    }
+                    break;
+             }
+             actual = actual.getEnlace();
+
+        }
+        
+    }
+
     /*
      * public void agregarNodo(Trabajador elemento, ArbolBinario busqueda) {
      * Nodo nuevo = new Nodo(elemento);

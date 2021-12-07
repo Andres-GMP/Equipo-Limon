@@ -24,8 +24,8 @@ public class Trabajadores {
             System.out.println("\t|1.| DAR DE ALTA  (TRABAJADOR)        |");
             System.out.println("\t|2.| DAR DE BAJA  (TRABAJADOR)        |");
             System.out.println("\t|3.| CONSULTAS EMPLEADO  (POR ID)     |");
-            System.out.println("\t|5.| MODIFICAR UN TRABAJADOR          |");
-            System.out.println("\t|6.| SALIR DEL SISTEMA                |");
+            System.out.println("\t|4.| MODIFICAR UN TRABAJADOR          |");
+            System.out.println("\t|5.| SALIR DEL SISTEMA                |");
             System.out.println("\t+--+----------------------------------+");
 
             try {
@@ -116,26 +116,15 @@ public class Trabajadores {
                         }
                         break;
 
-                    // CASO #3 MOSTRAMOS LA TABLA DE LOS TRABAJADORES EN ORDE QUE LOS INSERTE
+                    // CASO #3 MOSTRAMOS EL ARBOL DE LOS TRABAJADORES INSERTADOS
                     case 3:
-                        System.out.println(
-                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-                        System.out.println(
-                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         break;
 
-                    // CASO #4 MOSTRAMOS LA TABLA DE LOS TRABAJADORES EN ORDEN ASCENDENTE POR ID
+                    // CASO #4 MODIFICACION A LOS DATOS DE LOS TRABAJADORES
                     case 4:
-                        System.out.println(
-                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES POR ID~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
-                        System.out.println(
-                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        break;
-
-                    // CASO #5 MODIFICACION A LOS DATOS DE LOS TRABAJADORES
-                    case 5:
                         try {
                             System.out.println("\n\tINTRODUCE EL ID DEL TRABAJADOR A MODIFICAR (4 DIGITOS)");
                             ide = Integer.parseInt(lector.readLine());
@@ -146,7 +135,8 @@ public class Trabajadores {
                         }
                         break;
 
-                    case 6:
+                    // CASO #5 CERRAR EL PROGRAMA
+                    case 5:
                         salir = true;
                         break;
 
