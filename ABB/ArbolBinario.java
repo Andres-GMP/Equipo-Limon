@@ -131,7 +131,19 @@ public class ArbolBinario {
         System.out.println("Dato encontrado");
         return aux;
     }
+    
+    public void modificar(int datoBusqueda, Trabajador empleado) {
+       
+       if(busqueda(datoBusqueda)!=null){
+            busqueda(datoBusqueda).nuevoValor(empleado);
+       }else{
+           System.out.println("Trabajador no encontrado");
+       }
+      
 
+    }
+
+    
     /**
      * Método que agrega nodos a un árbol de tipo Trabajador
      * 
