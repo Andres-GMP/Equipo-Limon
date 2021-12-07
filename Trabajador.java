@@ -1,7 +1,7 @@
 package limonproject;
 
 public class Trabajador extends Persona{
-        private String id;
+        private int id;
         private double sueldo;
         private String puesto;
         
@@ -19,11 +19,11 @@ public class Trabajador extends Persona{
             this.sueldo = 0;
             this.puesto = "";
         }
-        public String getId() {
+        public int getId() {
                 return id;
         }
 
-        public void setId(String id) {
+        public void setId(int id) {
                 this.id = id;
         }
 
