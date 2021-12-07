@@ -158,7 +158,6 @@ public class ArbolBinario {
             raiz.insertar(newData);
     }
 
-<<<<<<< HEAD
     //Eliminar un TRABAJADOR....
 
     public Nodo eliminarNodo(int datoEliminar) throws IOException
@@ -185,9 +184,7 @@ public class ArbolBinario {
 
 
     }
-=======
->>>>>>> f405f8bc875cf809d4ca362496a645a178f2dc3d
-
+}
     /*
      * public void agregarNodo(Trabajador elemento, ArbolBinario busqueda) {
      * Nodo nuevo = new Nodo(elemento);
@@ -218,4 +215,3 @@ public class ArbolBinario {
      * }
      * }
      */
-}
