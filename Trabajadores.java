@@ -1,13 +1,10 @@
 package limonproject;
 
-import java.io.BufferedReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Random;
-import java.util.Scanner;
-
-import listagenerica.ListaGenerica;
-import sistematrabajadores.Trabajador;
+import ABB.*;
 
 public class Trabajadores {
     
@@ -15,7 +12,6 @@ public class Trabajadores {
         
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));     
         ArrayList<Integer> idList = new ArrayList<Integer>();
-        ListaGenerica listaTrabajadores = new ListaGenerica();
 
         int opcion;
         boolean salir = false;
@@ -55,28 +51,28 @@ public class Trabajadores {
                 try{
                     
                 System.out.println("\n\tINTRODUCIR TU NOMBRE");
-                nom = lector.readLine();
+                String nom = lector.readLine();
 
                 System.out.println("\tINTRODUCIR TU APELLIDO PATERNO");
-                apeP = lector.readLine();
+                String apeP = lector.readLine();
 
                 System.out.println("\tINTRODUCIR TU APELLIDO MATERNO");
-                apeM = lector.readLine();
+                String apeM = lector.readLine();
 
                 System.out.println("\tINTRODUCIR TU EDAD");
-                edad = lector.readLine();
+                int edad = Integer.parseInt(lector.readLine());
 
                 System.out.println("\tINTRODUCIR TU GENERO (M/F)");
-                gene = lector.readLine();
+                String gene = lector.readLine();
 
                 System.out.println("\tINTRODUCIR TU SUELDO");
-                suel = Integer.parseInt(lector.readLine());
+                int suel = Integer.parseInt(lector.readLine());
                     
                 System.out.println("\tINTRODUCIR TU PUESTO");
-                pues = lector.readLine();
+                String pues = lector.readLine();
                 
                 //INSERTAMOS A LA LISTA UN NUEVO TRABAJADOR
-                listaTrabajadores.insertarInicio(new Trabajador(nom, apeP , apeM , edad , gene , id , suel , pues)); 
+                //listaTrabajadores.insertarInicio(new Trabajador(nom, apeP , apeM , edad , gene , id , suel , pues)); 
 
                 System.out.println("\tHAS INSERTADO CORRECTAMENTE");
                     
@@ -84,7 +80,7 @@ public class Trabajadores {
                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                lector.next();
+                lector.readLine();
                 }
                 
                 break;
@@ -93,12 +89,12 @@ public class Trabajadores {
                 case 2:
 
                 System.out.println("\n\tINTRODUCE EL ID DEL TRABAJADOR A ELIMINAR (4 DIGITOS)");
-                ide = Integer.parseInt(lector.readLine());
+                int ide = Integer.parseInt(lector.readLine());
 
                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 System.out.println("\tESTAS SEGURO DE ELIMINAR AL TRABAJADOR ? (SI/NO)");
                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                opciones = lector.readLine();
+                String opciones = lector.readLine();
 
                 try{
                 if(opciones.equals("SI"))
@@ -166,7 +162,7 @@ public class Trabajadores {
             System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             System.out.println("\t|     DEBES DE INTRODUCIR UN NUMERO   |");
             System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-            lector.next();
+            lector.readLine();
         
         }
 
