@@ -55,25 +55,25 @@ public class Trabajadores {
                 try{
 
                 System.out.println("\n\tINTRODUCIR TU NOMBRE");
-                String nom = lector.next();
+                nom = lector.readLine();
 
                 System.out.println("\tINTRODUCIR TU APELLIDO PATERNO");
-                String apeP = lector.next();
+                apeP = lector.readLine();
 
                 System.out.println("\tINTRODUCIR TU APELLIDO MATERNO");
-                String apeM = lector.next();
+                apeM = lector.readLine();
 
                 System.out.println("\tINTRODUCIR TU EDAD");
-                int edad = lector.nextInt();
+                edad = lector.readLine();
 
                 System.out.println("\tINTRODUCIR TU GENERO (M/F)");
-                gene = Integer.parseInt(lector.readLine());
+                gene = lector.readLine();
 
                 System.out.println("\tINTRODUCIR TU SUELDO");
                 suel = Integer.parseInt(lector.readLine());
                     
                 System.out.println("\tINTRODUCIR TU PUESTO");
-                pues = Integer.parseInt(lector.readLine());
+                pues = lector.readLine();
                 
                 //INSERTAMOS A LA LISTA UN NUEVO TRABAJADOR
                 listaTrabajadores.insertarInicio(new Trabajador(nom, apeP , apeM , edad , gene , id , suel , pues)); 
