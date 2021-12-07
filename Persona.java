@@ -14,7 +14,7 @@ public class Persona {
         this.edad = edad;
         this.genero = genero;
     }
-    
+    //agregue un cmentario al código
     public Persona(){
         this.nombre = "";
         this.apellidoPaterno = "";
