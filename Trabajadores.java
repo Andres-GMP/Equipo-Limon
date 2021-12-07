@@ -198,7 +198,7 @@ public class Trabajadores {
                 String pues = lector.readLine();
 
                 // INSERTAMOS AL ARBOL UN NUEVO TRABAJADOR
-                actual.(new Trabajador(nom, apeP, apeM, edad, gene, id, suel, pues));
+                actual.nuevoValor(new Trabajador(nom, apeP, apeM, edad, gene, id, suel, pues));
                 arbolTrabajadores.modificar(id, actual);
                 System.out.println("\tDATOS MODIFICADOS CORRECTAMENTE");
 
