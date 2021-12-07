@@ -74,6 +74,7 @@ public class Trabajadores {
                             System.out.println("\tINTRODUCIR TU PUESTO");
                             String pues = lector.readLine();
 
+                            System.out.println(id);
                             // INSERTAMOS AL ARBOL UN NUEVO TRABAJADOR
                             arbolTrabajadores.agregarNodo(new Trabajador(nom, apeP, apeM, edad, gene, id, suel, pues));
                             System.out.println("\tHAS INSERTADO CORRECTAMENTE");
@@ -129,14 +130,19 @@ public class Trabajadores {
 
                     // CASO #4 MODIFICACION A LOS DATOS DE LOS TRABAJADORES
                     case 4:
+                    boolean condicion = true;
+                    while(condicion){
                         try {
                             System.out.println("\n\tINTRODUCE EL ID DEL TRABAJADOR A MODIFICAR (4 DIGITOS)");
                             ide = Integer.parseInt(lector.readLine());
                             modificar(ide);
+                            System.out.println("DESEA MODIFICAR LOS DATOS DE ALGUN OTRO TRABAJADOR");
+                            condicion=respuesta();
                             // listaTrabajadores.modificar(ide);
                         } catch (Exception e) {
                             System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
                         }
+                    }
                         break;
 
                     // CASO #5 CERRAR EL PROGRAMA
@@ -213,10 +219,12 @@ public class Trabajadores {
             }
                 break;
             case 2:
-            boolean encontrado;
-            encontrado = false;
+                boolean encontrado, si=true;
+                encontrado = false;
 
+                while(si){               
                 encontrado = (actual.valorNodo()).getId() == id;
+                
                 if(encontrado)
                 {
                     System.out.println("\tQUE APARTADO DESEAS MODIFICAR?");
@@ -239,44 +247,42 @@ public class Trabajadores {
                                 System.out.println("\n\tMODIFICA TU NOMBRE");
                                 String nom  = lector.readLine();
                                 (arbolTrabajadores.busqueda(id).valorNodo()).setNombre(nom);
-                                // ((Trabajador) actual.getData()).setNombre(nom);
-                
                                 break;
                                 
                                 case 2:
                                 System.out.println("\tMODIFICA TU APELLIDO PATERNO");
                                 String apeP  = lector.readLine();
-                                // ((Trabajador) actual.getData()).setApellidoP(apeP);
+                                (arbolTrabajadores.busqueda(id).valorNodo()).setApellidoPaterno(apeP);
                                 break;
     
                                 case 3:
                                 System.out.println("\tMODIFICA TU APELLIDO MATERNO");
                                 String apeM  = lector.readLine();
-                                // ((Trabajador) actual.getData()).setApellidoM(apeM);
+                                (arbolTrabajadores.busqueda(id).valorNodo()).setApellidoMaterno(apeM);
                                 break;
     
                                 case 4:
                                 System.out.println("\tMODIFICA TU EDAD");
                                 int edad = Integer.parseInt(lector.readLine());
-                                // ((Trabajador) actual.getData()).setEdad(edad);
+                                (arbolTrabajadores.busqueda(id).valorNodo()).setEdad(edad);
                                 break;
     
                                 case 5:
                                 System.out.println("\tMODIFICA TU GENERO");
                                 String gene = lector.readLine();
-                                // ((Trabajador) actual.getData()).setGenero(gene);
+                                (arbolTrabajadores.busqueda(id).valorNodo()).setGenero(gene);                                
                                 break;
     
                                 case 6:
                                 System.out.println("\tMODIFICA TU SUELDO");
                                 double suel = Double.parseDouble(lector.readLine());
-                                // ((Trabajador) actual.getData()).setSueldo(suel);
+                                (arbolTrabajadores.busqueda(id).valorNodo()).setSueldo(sueldo);
                                 break;
     
                                 case 7:
                                 System.out.println("\tMODIFICA TU PUESTO");
                                 String pues = lector.readLine();
-                                // ((Trabajador) actual.getData()).setPuesto(pues);
+                                (arbolTrabajadores.busqueda(id).valorNodo()).setPuesto(pues);
                                 break;
     
                                 default:
@@ -284,7 +290,7 @@ public class Trabajadores {
                                 System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     
-                        }
+                            }
                         
     
                     }catch(InputMismatchException e ){
@@ -292,17 +298,39 @@ public class Trabajadores {
                         System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                         lector.readLine();
-                        }
+                                }
                         break;
-                 }
+                }
+                    System.out.println("DESEA MODIFICAR OTRO DATO");                    
+                    si=respuesta();
+
                 break;
-        
-            default:
-            System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
-            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                break;
+
+                }
+                default:    
+                    System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
+                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                           break;
+         
         }
+        
         System.out.println("!");
+        
+
     }
+
+    public static boolean respuesta(){
+                    System.out.println("\t+--+----+");
+                    System.out.println("\t|1.| SI |");
+                    System.out.println("\t|2.| NO |");
+                    System.out.println("\t+--+----+");
+                    String resp = lector.readline();
+                    if(resp.equalsIgnoreCase("Si")){
+                        return true;
+                    }else if(resp.equalsIgnoreCase("No")){
+                        return false;
+                    }   
+    }
+
 }
