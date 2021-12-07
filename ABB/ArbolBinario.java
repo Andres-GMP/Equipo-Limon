@@ -2,6 +2,8 @@ package limonproject.ABB;
 
 import java.nio.charset.StandardCharsets;
 
+import limonproject.Trabajador;
+
 public class ArbolBinario {
     protected Nodo raiz;
 
@@ -136,32 +138,41 @@ public class ArbolBinario {
      * @param elemento
      * @param busqueda
      */
-    public void agregarNodo(Trabajador elemento, ArbolBinario busqueda) {
-        Nodo nuevo = new Nodo(elemento);
-        if (raiz == null) {
-            raiz = nuevo;
-        } else {
-            Nodo aux = raiz;
-            Nodo papa;
-            while (true) {
-                papa = aux;
-                if (Integer.parseInt((elemento).toString()) < Integer.parseInt((aux.dato).toString())) {
-                    aux = aux.izq;
-                    if (aux == null) {
-                        papa.izq = nuevo;
-                        return;
-                    }
-                } else {
-                    aux = aux.der;
-                    if (aux == null) {
-                        papa.der = nuevo;
-                        return;
-                    }
-                }
-
-            }
-
-        }
+    public void agregarNodo(Trabajador newData) {
+        if (esVacio())
+            raiz = new Nodo(newData);
+        else
+            raiz.insertar(newData);
     }
 
+    /*
+     * public void agregarNodo(Trabajador elemento, ArbolBinario busqueda) {
+     * Nodo nuevo = new Nodo(elemento);
+     * if (raiz == null) {
+     * raiz = nuevo;
+     * } else {
+     * Nodo aux = raiz;
+     * Nodo papa;
+     * while (true) {
+     * papa = aux;
+     * if (Integer.parseInt((elemento).toString()) <
+     * Integer.parseInt((aux.dato).toString())) {
+     * aux = aux.izq;
+     * if (aux == null) {
+     * papa.izq = nuevo;
+     * return;
+     * }
+     * } else {
+     * aux = aux.der;
+     * if (aux == null) {
+     * papa.der = nuevo;
+     * return;
+     * }
+     * }
+     * 
+     * }
+     * 
+     * }
+     * }
+     */
 }
