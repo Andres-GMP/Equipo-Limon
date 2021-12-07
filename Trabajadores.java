@@ -6,6 +6,7 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import ABB.*;
 import limonproject.ABB.ArbolBinario;
+import limonproject.ABB.Nodo;
 
 public class Trabajadores {
 
@@ -166,12 +167,13 @@ public class Trabajadores {
     //METODO PARA MODIFICAR
     public void modificar(int id) throws Exception{
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
-        Nodo actual=arbolTrabajadores.busqueda(id);
+        Nodo actual = arbolTrabajadores.busqueda(id);
         System.out.println("¿DESEA MODIFICAR TODOS LOS DATOS O SOLO UN CAMPO?");
         int res = Integer.parseInt(lector.readLine());
         System.out.println("\t+--+---------------------+");
         System.out.println("\t|1.| TODOS LOS DATOS     |");
-        System.out.println("\t|2.| CAMPO EN ESPECIFICO |"); 
+        System.out.println("\t|2.| CAMPO EN ESPECIFICO |");
+        System.out.println("\t|3.| CANCELAR            |"); 
         System.out.println("\t+--+---------------------+"); 
         switch (res) {
             case 1:
@@ -197,7 +199,7 @@ public class Trabajadores {
                 System.out.println("\tINTRODUCIR TU PUESTO");
                 String pues = lector.readLine();
 
-                // INSERTAMOS AL ARBOL UN NUEVO TRABAJADOR
+                // INSERTAMOS AL ARBOL LA INFORMACIÓN ACTUALIZADA DE UN TRABAJADOR
                 actual.nuevoValor(new Trabajador(nom, apeP, apeM, edad, gene, id, suel, pues));
                 arbolTrabajadores.modificar(id, actual);
                 System.out.println("\tDATOS MODIFICADOS CORRECTAMENTE");
@@ -212,7 +214,8 @@ public class Trabajadores {
             case 2:
             boolean encontrado;
             encontrado = false;
-                encontrado = Trabajador.class.cast(actual.getData()).getId() == id;
+
+                encontrado = (Trabajador(actual.valorNodo())).getId() == id;
                 if(encontrado)
                 {
                     System.out.println("\tQUE APARTADO DESEAS MODIFICAR?");
@@ -234,7 +237,8 @@ public class Trabajadores {
                                 case 1:
                                 System.out.println("\n\tMODIFICA TU NOMBRE");
                                 String nom  = lector.readLine();
-                                ((Trabajador) actual.getData()).setNombre(nom);
+                                (arbolTrabajadores.busqueda(id).getData()).setNombre(nom);
+                                // ((Trabajador) actual.getData()).setNombre(nom);
                 
                                 break;
                                 
@@ -293,12 +297,10 @@ public class Trabajadores {
                 break;
         
             default:
+            System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
+            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                 break;
         }
-        
-            
-
-        
-        
     }
 }
