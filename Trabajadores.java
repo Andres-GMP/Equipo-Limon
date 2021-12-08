@@ -193,7 +193,6 @@ public class Trabajadores {
                             editar(ide);
                             System.out.println("DESEA MODIFICAR LOS DATOS DE ALGUN OTRO TRABAJADOR");
                             condicion=respuesta();
-                            // listaTrabajadores.modificar(ide);
                         } catch (Exception e) {
                             System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
                         }
@@ -360,11 +359,15 @@ public class Trabajadores {
                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~\n");
                 System.out.println("DESEA MODIFICAR OTRO DATO");
                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~\n");                    
-                    si=respuesta();
-
+                    si = respuesta();
+                }
                 break;
 
-                }
+                case 3:
+                
+                break;
+
+                
                 default:    
                     System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
