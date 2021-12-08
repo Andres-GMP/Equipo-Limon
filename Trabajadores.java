@@ -164,6 +164,7 @@ public class Trabajadores {
                             System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                             lector.readLine();
                         }
+                        
                         break;
 
                     // CASO #4 MODIFICACION A LOS DATOS DE LOS TRABAJADORES
