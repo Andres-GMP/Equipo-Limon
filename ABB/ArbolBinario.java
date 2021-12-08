@@ -2,7 +2,6 @@ package limonproject.ABB;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-
 import limonproject.Trabajador;
 
 public class ArbolBinario {
@@ -62,7 +61,7 @@ public class ArbolBinario {
     public void inOrden(Nodo r) {
         if (r != null) {
             inOrden(r.izq);
-            System.out.println("Dato: " + r.dato);
+            System.out.println(r.dato.toString());
             inOrden(r.der);
         }
     }
@@ -86,7 +85,7 @@ public class ArbolBinario {
      */
     public void preOrden(Nodo r) {
         if ((Nodo) r != null) {
-            System.out.println("Dato: " + r.dato);
+            System.out.println(r.dato.toString());
             preOrden(r.izq);
             preOrden(r.der);
         }
@@ -104,7 +103,7 @@ public class ArbolBinario {
         if (r != null) {
             postOrden(r.izq);
             postOrden(r.der);
-            System.out.println("Dato: " + r.dato);
+            System.out.println(r.dato.toString());
         }
     }
 
