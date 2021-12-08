@@ -11,7 +11,7 @@ import limonproject.ABB.Nodo;
 public class Trabajadores {
     static BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
     static ArbolBinario arbolTrabajadores = new ArbolBinario();
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception, IOException {
 
         ArrayList<Integer> idList = new ArrayList<Integer>();
         
@@ -203,7 +203,9 @@ public class Trabajadores {
                     case 5:
                         salir = true;
                         break;
-
+                    case 6:
+                    trabajdoresPrueba(); 
+                    break; 
                     default:
                         System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
@@ -276,7 +278,7 @@ public class Trabajadores {
                 boolean encontrado, si=true;
                 encontrado = false;
 
-                while(si){               
+                // while(si){               
                 encontrado = (actual.valorNodo()).getId() == id;
                 
                 if(encontrado)
@@ -360,7 +362,7 @@ public class Trabajadores {
                 System.out.println("DESEA MODIFICAR OTRO DATO");
                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~\n");                    
                     si = respuesta();
-                }
+                // }
                 break;
 
                 case 3:
@@ -376,12 +378,12 @@ public class Trabajadores {
          
         }
         
-        System.out.println("!");
+        // System.out.println("!");
         
 
     }
 
-    public static boolean respuesta(){
+    public static boolean respuesta() throws IOException{
                     System.out.println("\t+--+----+");
                     System.out.println("\t|1.| SI |");
                     System.out.println("\t|2.| NO |");
@@ -389,12 +391,20 @@ public class Trabajadores {
                     String resp = lector.readLine();
                     if(resp.equalsIgnoreCase("Si"))
                         return true;
-                    else if(!resp.equalsIgnoreCase("No")) {
+                    else if(!resp.equalsIgnoreCase("No")){
+                        return false;
+                    } 
                         System.out.println("(SI/NO)");
-                        respuesta();
-                    }
-
+                        lector.readLine();
+                        // respuesta();
                     return false;
+    }
+    public static void trabajdoresPrueba(){
+        arbolTrabajadores.agregarNodo(new Trabajador("AER", "E", "M", 19, "M", 10, 20, "ceo"));
+        arbolTrabajadores.agregarNodo(new Trabajador("FZ", "E", "M", 19, "M", 9, 19, "ceo"));
+        arbolTrabajadores.agregarNodo(new Trabajador("OGA", "E", "M", 19, "M", 11, 18, "ceo"));
+        arbolTrabajadores.agregarNodo(new Trabajador("AER", "E", "M", 19, "M", 1, 18, "ceo"));
+        System.out.println("hola");
     }
 
 }
