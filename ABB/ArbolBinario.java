@@ -158,11 +158,12 @@ public class ArbolBinario {
     // Eliminar un TRABAJADOR....
 
     public Nodo eliminarNodo(int datoEliminar) throws IOException {
-        Nodo aux = this.raiz, anterior;
-        //
-        while (aux.valorNodo().getId() != datoBusqueda) {
+        Nodo aux = this.raiz;
+        Nodo anterior = new Nodo(null, null, null);
+        // System.out.println(aux.valorNodo().getId());
+        while (aux.valorNodo().getId() != datoEliminar) {
             anterior = aux;
-            if (datoBusqueda < aux.valorNodo().getId()) {
+            if (datoEliminar < aux.valorNodo().getId()) {
                 aux = aux.izq;
             } else {
                 aux = aux.der;
@@ -171,47 +172,49 @@ public class ArbolBinario {
                 return null;
             }
         }
-
+        // System.out.println("anterior"+(anterior.dato.getId()));
         Nodo izq = aux.izq.clone(), der = aux.der.clone();
         aux = null;
         if (izq != null)
-            this.anterior.agregarNodo(izq);
-        if (lder != null)
-            this.anterior.agregarNodo(der);
+            anterior.insertar(izq);
+        if (der != null)
+            anterior.insertar(der);
         System.out.println("a");
         return null;
 
     }
+
+    // public void agregarNodo(Trabajador elemento, ArbolBinario busqueda) {
+    //     Nodo nuevo = new Nodo(elemento);
+    //     if (raiz == null) {
+    //     raiz = nuevo;
+    //     } else {
+    //     Nodo aux = raiz;
+    //     Nodo papa;
+    //    while (true) {
+    //     papa = aux;
+    //     if (Integer.parseInt((elemento).toString()) <
+    //     Integer.parseInt((aux.dato).toString())) {
+    //     aux = aux.izq;
+    //     if (aux == null) {
+    //     papa.izq = nuevo;
+    //     return;
+    //     }
+    //     } else {
+    //     aux = aux.der;
+    //     if (aux == null) {
+    //     papa.der = nuevo;
+    //     return;
+    //     }
+    //     }
+        
+    //     }
+        
+    //     }
+    //     }
 }
 // xd
 
-/*
- * public void agregarNodo(Trabajador elemento, ArbolBinario busqueda) {
- * Nodo nuevo = new Nodo(elemento);
- * if (raiz == null) {
- * raiz = nuevo;
- * } else {
- * Nodo aux = raiz;
- * Nodo papa;
- * while (true) {
- * papa = aux;
- * if (Integer.parseInt((elemento).toString()) <
- * Integer.parseInt((aux.dato).toString())) {
- * aux = aux.izq;
- * if (aux == null) {
- * papa.izq = nuevo;
- * return;
- * }
- * } else {
- * aux = aux.der;
- * if (aux == null) {
- * papa.der = nuevo;
- * return;
- * }
- * }
- * 
- * }
- * 
- * }
- * }
- */
+
+  
+ 

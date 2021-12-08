@@ -117,6 +117,7 @@ public class Trabajadores {
                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                             }
                         } catch (Exception e) {
+                            System.out.println(e.getMessage());
                             System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
                         }
                         break;
@@ -193,6 +194,9 @@ public class Trabajadores {
                     case 5:
                         salir = true;
                         break;
+                    case 123:
+                        trabajdoresPrueba();
+                    break;
 
                     default:
                         System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -377,6 +381,15 @@ public class Trabajadores {
             System.out.println("(SI/NO)");
             respuesta();
         }
+    }
+
+
+    public static void trabajdoresPrueba(){
+        arbolTrabajadores.agregarNodo(new Trabajador("AER", "E", "M", 19, "M", 10, 20, "ceo"));
+        arbolTrabajadores.agregarNodo(new Trabajador("FZ", "E", "M", 19, "M", 9, 19, "ceo"));
+        arbolTrabajadores.agregarNodo(new Trabajador("OGA", "E", "M", 19, "M", 11, 18, "ceo"));
+        arbolTrabajadores.agregarNodo(new Trabajador("AER", "E", "M", 19, "M", 1, 18, "ceo"));
+        System.out.println("hola");
     }
 
 }
