@@ -58,19 +58,14 @@ public class ArbolBinario {
      * 
      * @param raiz
      */
-    public void inOrden(Nodo r) {
+    public void inOrden(){
+        inOrden(raiz);
+    }
+
+    private void inOrden(Nodo r) {
         if (r != null) {
             inOrden(r.izq);
             System.out.println(r.dato.toString());
-            inOrden(r.der);
-        }
-    }
-
-    public void inOrdenArbol(Nodo r) {
-        if (r != null) {
-            inOrden(r.izq);
-            this.agregarNodo(r, this);
-            // System.out.println("Dato: "+ r.dato);
             inOrden(r.der);
         }
     }
@@ -83,7 +78,12 @@ public class ArbolBinario {
      * 
      * @param raiz
      */
-    public void preOrden(Nodo r) {
+
+    public void preOrden(){
+        preOrden(raiz);
+    }
+
+    private void preOrden(Nodo r) {
         if ((Nodo) r != null) {
             System.out.println(r.dato.toString());
             preOrden(r.izq);
@@ -99,7 +99,12 @@ public class ArbolBinario {
      * 
      * @param raiz
      */
-    public void postOrden(Nodo r) {
+
+    public void postOrden(){
+        postOrden(raiz);
+    }
+
+    private void postOrden(Nodo r) {
         if (r != null) {
             postOrden(r.izq);
             postOrden(r.der);
