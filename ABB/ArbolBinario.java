@@ -183,6 +183,8 @@ public class ArbolBinario {
 
     }
 }
+// xd
+
 /*
  * public void agregarNodo(Trabajador elemento, ArbolBinario busqueda) {
  * Nodo nuevo = new Nodo(elemento);
