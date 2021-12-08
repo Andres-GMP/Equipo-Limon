@@ -58,7 +58,7 @@ public class ArbolBinario {
      * 
      * @param raiz
      */
-    public void inOrden() {
+    public void inOrden(){
         inOrden(raiz);
     }
 
@@ -79,7 +79,7 @@ public class ArbolBinario {
      * @param raiz
      */
 
-    public void preOrden() {
+    public void preOrden(){
         preOrden(raiz);
     }
 
@@ -100,19 +100,11 @@ public class ArbolBinario {
      * @param raiz
      */
 
-    public void postOrden() {
+    public void postOrden(){
         postOrden(raiz);
     }
 
-    /**
-     * Método que recorre el árbol binario de busqueda de manera post-Orden
-     * revis el nodo izquierdo, el derecho y luego la raiz
-     * IDR
-     * http://aniei.org.mx/paginas/uam/CursoPoo/curso_poo_12.html
-     * 
-     * @param raiz
-     */
-    public void postOrden(Nodo r) {
+    private void postOrden(Nodo r) {
         if (r != null) {
             postOrden(r.izq);
             postOrden(r.der);
