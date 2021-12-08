@@ -334,7 +334,10 @@ public class Trabajadores {
                         return true;
                     }else if(resp.equalsIgnoreCase("No")){
                         return false;
-                    }   
+                    }else{
+                        System.out.println("(SI/NO)");
+                        respuesta();
+                    }
     }
 
 }
