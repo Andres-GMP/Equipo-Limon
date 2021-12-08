@@ -133,7 +133,7 @@ public class ArbolBinario {
                 return null;
             }
         }
-        System.out.println("Dato encontrado");
+        // System.out.println("Dato encontrado");
         return aux;
     }
 

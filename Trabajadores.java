@@ -99,7 +99,7 @@ public class Trabajadores {
                         ide = Integer.parseInt(lector.readLine());
 
                         System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        System.out.println("\tESTAS SEGURO DE ELIMINAR AL TRABAJADOR ? (SI/NO)");
+                        System.out.println("\t¿ESTAS SEGURO DE ELIMINAR AL TRABAJADOR "+arbolTrabajadores.busqueda(ide).valorNodo().getNombre()+" "+arbolTrabajadores.busqueda(ide).valorNodo().getApellidoPaterno()+"? (SI/NO)");
                         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         String opciones = lector.readLine();
 
@@ -120,7 +120,7 @@ public class Trabajadores {
                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                             }
                         } catch (Exception e) {
-                            System.out.println(e.getMessage());
+                            // System.out.println(e.getMessage());
                             System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
                         }
                         break;
@@ -189,11 +189,21 @@ public class Trabajadores {
                         try {
                             System.out.println("\n\tINTRODUCE EL ID DEL TRABAJADOR A MODIFICAR (4 DIGITOS)");
                             ide = Integer.parseInt(lector.readLine());
+                            
+                            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                            System.out.println("\t¿ESTAS SEGURO DE MODIFICAR LA INFORMACIÓN DE "+arbolTrabajadores.busqueda(ide).valorNodo().getNombre()+" "+arbolTrabajadores.busqueda(ide).valorNodo().getApellidoPaterno()+"? (SI/NO)");
+                            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                            condicion = respuesta();
+                            if(condicion)
                             editar(ide);
+                            else
+                            break;
+                            
                             System.out.println("DESEA MODIFICAR LOS DATOS DE ALGUN OTRO TRABAJADOR");
-                            condicion=respuesta();
+                            condicion=!respuesta();
                         } catch (Exception e) {
                             System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
+                            break;
                         }
                     }
                         break;
@@ -223,7 +233,7 @@ public class Trabajadores {
 
         }
 
-        System.out.println("xd");
+        System.out.println("HASTA LUEGO (U.U )...zzz)");
 
     }
 
@@ -365,8 +375,7 @@ public class Trabajadores {
                 break;
 
                 case 3:
-                
-                break;
+                return;
 
                 
                 default:    
@@ -374,37 +383,45 @@ public class Trabajadores {
                     System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                     System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                            break;
-         
         }
-        
-        
-        // System.out.println("!");
-        
-
     }
-
+/**
+ * Métodoo que pregunta ¿si o no?
+ * @return boolean true/false
+ * @throws IOException
+ */
     public static boolean respuesta() throws IOException{
                     System.out.println("\t+--+----+");
                     System.out.println("\t|1.| SI |");
                     System.out.println("\t|2.| NO |");
                     System.out.println("\t+--+----+");
                     String resp = lector.readLine();
-                    if(resp.equalsIgnoreCase("Si"))
+                    boolean bol= true;
+                    while(bol){
+                       if(resp.equalsIgnoreCase("Si"))
                         return true;
                     else if(!resp.equalsIgnoreCase("No")){
                         return false;
                     } 
                         System.out.println("(SI/NO)");
                         lector.readLine();
-                        // respuesta();
+                        // respuesta(); 
+                    }
+                    
+                    
                     return false;
     }
+    /**
+     * Método para ingresar trabajadores de manera rapida
+     */
     public static void trabajdoresPrueba(){
-        arbolTrabajadores.agregarNodo(new Trabajador("AER", "E", "M", 19, "M", 10, 20, "ceo"));
-        arbolTrabajadores.agregarNodo(new Trabajador("FZ", "E", "M", 19, "M", 9, 19, "ceo"));
-        arbolTrabajadores.agregarNodo(new Trabajador("OGA", "E", "M", 19, "M", 11, 18, "ceo"));
-        arbolTrabajadores.agregarNodo(new Trabajador("AER", "E", "M", 19, "M", 1, 18, "ceo"));
-        System.out.println("hola");
+        arbolTrabajadores.agregarNodo(new Trabajador("Axel", "Enciso", "R", 19, "Masculino", 10, 20000, "VENTAS"));
+        arbolTrabajadores.agregarNodo(new Trabajador("Fucheng", "Zhou", " ", 19, "Masculino", 9, 40000, "SECRETARIO"));
+        arbolTrabajadores.agregarNodo(new Trabajador("Oscar", "Anguiano", "G", 19, "Masculino", 11, 3000, "CEO"));
+        arbolTrabajadores.agregarNodo(new Trabajador("Andres", "Gonzalez", "M", 19, "Masculino", 8, 150000, "PRODUCCIÓN"));
+        arbolTrabajadores.agregarNodo(new Trabajador("Omar", "Millan", "V", 19, "Masculino", 12, 97400, "RHH"));
+        arbolTrabajadores.agregarNodo(new Trabajador("Pablo", "Palma", "G", 25, "Masculino", 1, 24000, "DIRECCION"));
+        // System.out.println("hola");
     }
 
 }
