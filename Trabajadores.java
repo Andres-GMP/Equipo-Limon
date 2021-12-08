@@ -9,14 +9,14 @@ import limonproject.ABB.ArbolBinario;
 import limonproject.ABB.Nodo;
 
 public class Trabajadores {
-
+    static BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
     static ArbolBinario arbolTrabajadores = new ArbolBinario();
     public static void main(String[] args) throws Exception {
 
-        BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
         ArrayList<Integer> idList = new ArrayList<Integer>();
         
 
+        int ide = 0;
         int opcion;
         boolean salir = false;
 
@@ -69,7 +69,7 @@ public class Trabajadores {
                             String gene = lector.readLine();
 
                             System.out.println("\tINTRODUCIR TU SUELDO");
-                            int suel = Integer.parseInt(lector.readLine());
+                            double suel = Double.parseDouble(lector.readLine());
 
                             System.out.println("\tINTRODUCIR TU PUESTO");
                             String pues = lector.readLine();
@@ -93,7 +93,7 @@ public class Trabajadores {
                     case 2:
 
                         System.out.println("\n\tINTRODUCE EL ID DEL TRABAJADOR A ELIMINAR (4 DIGITOS)");
-                        int ide = Integer.parseInt(lector.readLine());
+                        ide = Integer.parseInt(lector.readLine());
 
                         System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         System.out.println("\tESTAS SEGURO DE ELIMINAR AL TRABAJADOR ? (SI/NO)");
@@ -174,7 +174,7 @@ public class Trabajadores {
                         try {
                             System.out.println("\n\tINTRODUCE EL ID DEL TRABAJADOR A MODIFICAR (4 DIGITOS)");
                             ide = Integer.parseInt(lector.readLine());
-                            modificar(ide);
+                            editar(ide);
                             System.out.println("DESEA MODIFICAR LOS DATOS DE ALGUN OTRO TRABAJADOR");
                             condicion=respuesta();
                             // listaTrabajadores.modificar(ide);
@@ -211,8 +211,7 @@ public class Trabajadores {
     }
 
     //METODO PARA MODIFICAR
-    public static void modificar(int id) throws Exception{
-        BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
+    public static void editar(int id) throws Exception{
         Nodo actual = arbolTrabajadores.busqueda(id);
         System.out.println("¿DESEA MODIFICAR TODOS LOS DATOS O SOLO UN CAMPO?");
         System.out.println("\t+--+---------------------+");
@@ -240,7 +239,7 @@ public class Trabajadores {
                 String gene = lector.readLine();
 
                 System.out.println("\tINTRODUCIR TU SUELDO");
-                int suel = Integer.parseInt(lector.readLine());
+                double suel = Double.parseDouble(lector.readLine());
 
                 System.out.println("\tINTRODUCIR TU PUESTO");
                 String pues = lector.readLine();
@@ -315,7 +314,7 @@ public class Trabajadores {
                                 case 6:
                                 System.out.println("\tMODIFICA TU SUELDO");
                                 double suel = Double.parseDouble(lector.readLine());
-                                (arbolTrabajadores.busqueda(id).valorNodo()).setSueldo(sueldo);
+                                (arbolTrabajadores.busqueda(id).valorNodo()).setSueldo(suel);
                                 break;
     
                                 case 7:
@@ -367,15 +366,15 @@ public class Trabajadores {
                     System.out.println("\t|1.| SI |");
                     System.out.println("\t|2.| NO |");
                     System.out.println("\t+--+----+");
-                    String resp = lector.readline();
-                    if(resp.equalsIgnoreCase("Si")){
+                    String resp = lector.readLine();
+                    if(resp.equalsIgnoreCase("Si"))
                         return true;
-                    }else if(resp.equalsIgnoreCase("No")){
-                        return false;
-                    }else{
+                    else if(!resp.equalsIgnoreCase("No")) {
                         System.out.println("(SI/NO)");
                         respuesta();
                     }
+
+                    return false;
     }
 
 }
