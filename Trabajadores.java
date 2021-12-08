@@ -101,7 +101,7 @@ public class Trabajadores {
                         String opciones = lector.readLine();
 
                         try {
-                            if (opciones.equals("SI")) {
+                            if (opciones.equalsIgnoreCase("SI")) {
                                 arbolTrabajadores.eliminarNodo(ide);
 
                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -124,44 +124,57 @@ public class Trabajadores {
 
                     // CASO #3 MOSTRAMOS EL ARBOL DE LOS TRABAJADORES INSERTADOS
                     case 3:
-                        System.out.println("\n\t+--+---CONSULTA DE TRABAJADORES-------+");
-                        System.out.println("\t|1.| CONSULTA POR INORDEN             |");
-                        System.out.println("\t|2.| CONSULTA POR PREORDEN            |");
-                        System.out.println("\t|3.| CONSULTA POR POSTORDEN           |");
-                        System.out.println("\t|4.| SALIR DEL SISTEMA                |");
-                        System.out.println("\t+--+----------------------------------+");
 
                         try {
-                            System.out.println("\t|        SELECCIONA UNA OPCION        |");
+                            System.out.println("\n\t+--+---CONSULTA DE TRABAJADORES-------+");
+                            System.out.println("\t|1.| CONSULTA POR INORDEN             |");
+                            System.out.println("\t|2.| CONSULTA POR PREORDEN            |");
+                            System.out.println("\t|3.| CONSULTA POR POSTORDEN           |");
+                            System.out.println("\t|4.| REGRESAR AL MENU PRINCIPAL       |");
                             System.out.println("\t+--+----------------------------------+");
-                            opcion = Integer.parseInt(lector.readLine());
 
-                            switch (opcion) {
+                            try {
+                                System.out.println("\t|        SELECCIONA UNA OPCION        |");
+                                System.out.println("\t+--+----------------------------------+");
+                                opcion = Integer.parseInt(lector.readLine());
 
-                                case 1:
-                                    System.out.println(
-                                            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES POR INORDEN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                switch (opcion) {
 
-                                    System.out.println(
-                                            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                    break;
+                                    case 1:
+                                        System.out.println(
+                                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES POR INORDEN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        arbolTrabajadores.inOrden();
+                                        System.out.println(
+                                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        break;
 
-                                case 2:
-                                    System.out.println(
-                                            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES POR PREORDEN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                    case 2:
+                                        System.out.println(
+                                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES POR PREORDEN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        arbolTrabajadores.preOrden();
+                                        System.out.println(
+                                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        break;
 
-                                    System.out.println(
-                                            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                    break;
+                                    case 3:
+                                        System.out.println(
+                                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES POR POSTORDEN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        arbolTrabajadores.postOrden();
+                                        System.out.println(
+                                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        break;
 
-                                case 3:
-                                    System.out.println(
-                                            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES POR POSTORDEN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                    default:
+                                        System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
+                                        System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
-                                    System.out.println(
-                                            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                    break;
-
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
+                                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                                lector.readLine();
                             }
 
                         } catch (InputMismatchException e) {

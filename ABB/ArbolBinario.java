@@ -58,19 +58,14 @@ public class ArbolBinario {
      * 
      * @param raiz
      */
-    public void inOrden(Nodo r) {
+    public void inOrden() {
+        inOrden(raiz);
+    }
+
+    private void inOrden(Nodo r) {
         if (r != null) {
             inOrden(r.izq);
             System.out.println(r.dato.toString());
-            inOrden(r.der);
-        }
-    }
-
-    public void inOrdenArbol(Nodo r) {
-        if (r != null) {
-            inOrden(r.izq);
-            this.agregarNodo(r, this);
-            // System.out.println("Dato: "+ r.dato);
             inOrden(r.der);
         }
     }
@@ -83,12 +78,30 @@ public class ArbolBinario {
      * 
      * @param raiz
      */
-    public void preOrden(Nodo r) {
+
+    public void preOrden() {
+        preOrden(raiz);
+    }
+
+    private void preOrden(Nodo r) {
         if ((Nodo) r != null) {
             System.out.println(r.dato.toString());
             preOrden(r.izq);
             preOrden(r.der);
         }
+    }
+
+    /**
+     * Método que recorre el árbol binario de busqueda de manera post-Orden
+     * revis el nodo izquierdo, el derecho y luego la raiz
+     * IDR
+     * http://aniei.org.mx/paginas/uam/CursoPoo/curso_poo_12.html
+     * 
+     * @param raiz
+     */
+
+    public void postOrden() {
+        postOrden(raiz);
     }
 
     /**
@@ -159,7 +172,7 @@ public class ArbolBinario {
 
     public Nodo eliminarNodo(int datoEliminar) throws IOException {
         Nodo aux = this.raiz;
-        Nodo anterior = new Nodo(null, null, null);
+        Nodo anterior = new Nodo();
         // System.out.println(aux.valorNodo().getId());
         while (aux.valorNodo().getId() != datoEliminar) {
             anterior = aux;
@@ -172,18 +185,33 @@ public class ArbolBinario {
                 return null;
             }
         }
-        // System.out.println("anterior"+(anterior.dato.getId()));
-        // Nodo izq = aux.izq.clone(), der = aux.der.clone();
-        System.out.println(izq);
-        System.out.println(der);
-        Nodo x = new Nodo(aux.izq, aux.dato, aux.der);
-        aux = null;
-        if (x.izq != null)
-            anterior.insertar(x.izq);
-        if (x.der != null)
-            anterior.insertar(x.der);
-        System.out.println("a");
-        return null;
+
+        Nodo x = aux.clone();
+        if (anterior.dato != null) {
+            if (anterior.dato.getId() > aux.dato.getId())
+                anterior.izq = null;
+            else
+                anterior.der = null;
+
+            if (x.izq != null)
+                anterior.insertar(x.izq);
+            if (x.der != null)
+                anterior.insertar(x.der);
+        } else {
+            if (x.izq != null) {
+                this.raiz = anterior = x.izq;
+                if (x.der != null)
+                    x.izq.insertar(x.der);
+            } else if (x.der != null) {
+                this.raiz = anterior = x.der;
+                if (x.izq != null)
+                    x.der.insertar(x.izq);
+            } else {
+                this.raiz = null;
+            }
+        }
+
+        return x;
 
     }
 

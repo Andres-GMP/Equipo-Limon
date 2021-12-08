@@ -40,6 +40,12 @@ public class Nodo {
         der = null;
     }
 
+    public void delete() {
+        dato = null;
+        izq = null;
+        der = null;
+    }
+
     /**
      * @Override
      * @param newData
@@ -132,14 +138,15 @@ public class Nodo {
      * Este método clona el
      */
     public Nodo clone() {
+        if (this.der == null && this.izq == null)
+            return new Nodo(null, this.dato.clone(), null);
+
         if (this.izq == null) {
             return new Nodo(null, this.dato.clone(), this.der.clone());
         }
         if (this.der == null) {
             return new Nodo(this.izq.clone(), this.dato.clone(), null);
         }
-        if (this.der == null && this.izq == null)
-            return new Nodo(null, this.dato.clone(), null);
         return new Nodo(this.izq.clone(), this.dato.clone(), this.der.clone());
     }
 }
