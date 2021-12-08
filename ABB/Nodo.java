@@ -99,4 +99,8 @@ public class Nodo {
     public void ramaDcho(Nodo der) {
         this.der = der;
     }
+
+    public Nodo clone() {
+        return new Nodo(this.izq, this.dato, this.der);
+    }
 }

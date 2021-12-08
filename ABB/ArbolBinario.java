@@ -131,19 +131,17 @@ public class ArbolBinario {
         System.out.println("Dato encontrado");
         return aux;
     }
-    
+
     public void modificar(int datoBusqueda, Trabajador empleado) {
-       
-       if(busqueda(datoBusqueda)!=null){
+
+        if (busqueda(datoBusqueda) != null) {
             busqueda(datoBusqueda).nuevoValor(empleado);
-       }else{
-           System.out.println("Trabajador no encontrado");
-       }
-      
+        } else {
+            System.out.println("Trabajador no encontrado");
+        }
 
     }
 
-    
     /**
      * Método que agrega nodos a un árbol de tipo Trabajador
      * 
@@ -157,60 +155,61 @@ public class ArbolBinario {
             raiz.insertar(newData);
     }
 
-    //Eliminar un TRABAJADOR....
+    // Eliminar un TRABAJADOR....
 
-    public Nodo eliminarNodo(int datoEliminar) throws IOException
-    {
-        Nodo eliminar = busqueda(datoEliminar);
-        
-        if(eliminar == null)
-        {
-            return null;
+    public Nodo eliminarNodo(int datoEliminar) throws IOException {
+        Nodo aux = this.raiz, anterior;
+        //
+        while (aux.valorNodo().getId() != datoBusqueda) {
+            anterior = aux;
+            if (datoBusqueda < aux.valorNodo().getId()) {
+                aux = aux.izq;
+            } else {
+                aux = aux.der;
+            }
+            if (aux == null) {
+                return null;
+            }
         }
-        Nodo izq,der;
 
-        izq = eliminar.izq;
-        der = eliminar.der;
-
-        eliminar = null;
-
-        if(izq != null) this.raiz.insertar(izq.valorNodo());
-        if(der != null) this.raiz.insertar(der.valorNodo());
-       
-       
-        
-    return null;
-
+        Nodo izq = aux.izq.clone(), der = aux.der.clone();
+        aux = null;
+        if (izq != null)
+            this.anterior.agregarNodo(izq);
+        if (lder != null)
+            this.anterior.agregarNodo(der);
+        System.out.println("a");
+        return null;
 
     }
 }
-    /*
-     * public void agregarNodo(Trabajador elemento, ArbolBinario busqueda) {
-     * Nodo nuevo = new Nodo(elemento);
-     * if (raiz == null) {
-     * raiz = nuevo;
-     * } else {
-     * Nodo aux = raiz;
-     * Nodo papa;
-     * while (true) {
-     * papa = aux;
-     * if (Integer.parseInt((elemento).toString()) <
-     * Integer.parseInt((aux.dato).toString())) {
-     * aux = aux.izq;
-     * if (aux == null) {
-     * papa.izq = nuevo;
-     * return;
-     * }
-     * } else {
-     * aux = aux.der;
-     * if (aux == null) {
-     * papa.der = nuevo;
-     * return;
-     * }
-     * }
-     * 
-     * }
-     * 
-     * }
-     * }
-     */
+/*
+ * public void agregarNodo(Trabajador elemento, ArbolBinario busqueda) {
+ * Nodo nuevo = new Nodo(elemento);
+ * if (raiz == null) {
+ * raiz = nuevo;
+ * } else {
+ * Nodo aux = raiz;
+ * Nodo papa;
+ * while (true) {
+ * papa = aux;
+ * if (Integer.parseInt((elemento).toString()) <
+ * Integer.parseInt((aux.dato).toString())) {
+ * aux = aux.izq;
+ * if (aux == null) {
+ * papa.izq = nuevo;
+ * return;
+ * }
+ * } else {
+ * aux = aux.der;
+ * if (aux == null) {
+ * papa.der = nuevo;
+ * return;
+ * }
+ * }
+ * 
+ * }
+ * 
+ * }
+ * }
+ */
