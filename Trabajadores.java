@@ -196,7 +196,7 @@ public class Trabajadores {
                         break;
                     case 123:
                         trabajdoresPrueba();
-                    break;
+                        break;
 
                     default:
                         System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -383,8 +383,7 @@ public class Trabajadores {
         }
     }
 
-
-    public static void trabajdoresPrueba(){
+    public static void trabajdoresPrueba() {
         arbolTrabajadores.agregarNodo(new Trabajador("AER", "E", "M", 19, "M", 10, 20, "ceo"));
         arbolTrabajadores.agregarNodo(new Trabajador("FZ", "E", "M", 19, "M", 9, 19, "ceo"));
         arbolTrabajadores.agregarNodo(new Trabajador("OGA", "E", "M", 19, "M", 11, 18, "ceo"));

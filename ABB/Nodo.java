@@ -33,11 +33,13 @@ public class Nodo {
         izq = ramaIzdo;
         der = ramaDcho;
     }
-    public Nodo(){
+
+    public Nodo() {
         dato = null;
         izq = null;
         der = null;
     }
+
     /**
      * @Override
      * @param newData
@@ -55,6 +57,7 @@ public class Nodo {
                 der.insertar(newData);
         }
     }
+
     /**
      * @Override
      * @param newData
@@ -62,7 +65,7 @@ public class Nodo {
     public void insertar(Nodo newData) {
         if ((newData.dato).getId() < this.dato.getId()) {
             if (izq == null)
-                izq =  newData;
+                izq = newData;
             else
                 izq.insertar(newData);
         } else if ((newData.dato).getId() > this.dato.getId()) {
@@ -124,16 +127,19 @@ public class Nodo {
     public void ramaDcho(Nodo der) {
         this.der = der;
     }
+
     /**
-     * Este método clona el 
+     * Este método clona el
      */
     public Nodo clone() {
-        if(this.izq == null){
-            return new Nodo(null,this.dato.clone(),this.der.clone());
+        if (this.izq == null) {
+            return new Nodo(null, this.dato.clone(), this.der.clone());
         }
-        if(this.der==null){
-            return new Nodo(this.izq.clone(), this.dato.clone(),null);
+        if (this.der == null) {
+            return new Nodo(this.izq.clone(), this.dato.clone(), null);
         }
+        if (this.der == null && this.izq == null)
+            return new Nodo(null, this.dato.clone(), null);
         return new Nodo(this.izq.clone(), this.dato.clone(), this.der.clone());
     }
 }

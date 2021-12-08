@@ -173,48 +173,47 @@ public class ArbolBinario {
             }
         }
         // System.out.println("anterior"+(anterior.dato.getId()));
-        Nodo izq = aux.izq.clone(), der = aux.der.clone();
+        // Nodo izq = aux.izq.clone(), der = aux.der.clone();
+        System.out.println(izq);
+        System.out.println(der);
+        Nodo x = new Nodo(aux.izq, aux.dato, aux.der);
         aux = null;
-        if (izq != null)
-            anterior.insertar(izq);
-        if (der != null)
-            anterior.insertar(der);
+        if (x.izq != null)
+            anterior.insertar(x.izq);
+        if (x.der != null)
+            anterior.insertar(x.der);
         System.out.println("a");
         return null;
 
     }
 
     // public void agregarNodo(Trabajador elemento, ArbolBinario busqueda) {
-    //     Nodo nuevo = new Nodo(elemento);
-    //     if (raiz == null) {
-    //     raiz = nuevo;
-    //     } else {
-    //     Nodo aux = raiz;
-    //     Nodo papa;
-    //    while (true) {
-    //     papa = aux;
-    //     if (Integer.parseInt((elemento).toString()) <
-    //     Integer.parseInt((aux.dato).toString())) {
-    //     aux = aux.izq;
-    //     if (aux == null) {
-    //     papa.izq = nuevo;
-    //     return;
-    //     }
-    //     } else {
-    //     aux = aux.der;
-    //     if (aux == null) {
-    //     papa.der = nuevo;
-    //     return;
-    //     }
-    //     }
-        
-    //     }
-        
-    //     }
-    //     }
+    // Nodo nuevo = new Nodo(elemento);
+    // if (raiz == null) {
+    // raiz = nuevo;
+    // } else {
+    // Nodo aux = raiz;
+    // Nodo papa;
+    // while (true) {
+    // papa = aux;
+    // if (Integer.parseInt((elemento).toString()) <
+    // Integer.parseInt((aux.dato).toString())) {
+    // aux = aux.izq;
+    // if (aux == null) {
+    // papa.izq = nuevo;
+    // return;
+    // }
+    // } else {
+    // aux = aux.der;
+    // if (aux == null) {
+    // papa.der = nuevo;
+    // return;
+    // }
+    // }
+
+    // }
+
+    // }
+    // }
 }
 // xd
-
-
-  
- 
