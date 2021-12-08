@@ -74,11 +74,15 @@ public class Trabajadores {
                             System.out.println("\tINTRODUCIR TU PUESTO");
                             String pues = lector.readLine();
 
-                            System.out.println("GENERANDO ID...");
-                            System.out.println("EL ID ES:" +id);
+                            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("\tGENERANDO ID...");
+                            System.out.println("\tEL ID ES: " + id + " DEL TRABAJADOR: " + nom);
+
                             // INSERTAMOS AL ARBOL UN NUEVO TRABAJADOR
                             arbolTrabajadores.agregarNodo(new Trabajador(nom, apeP, apeM, edad, gene, id, suel, pues));
-                            System.out.println("\tHAS INSERTADO CORRECTAMENTE");
+                            System.out.println("\t---------------------------------------------");
+                            System.out.println("\t          HAS INSERTADO CORRECTAMENTE        ");
+                            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
                         } catch (InputMismatchException e) {
                             System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -124,6 +128,7 @@ public class Trabajadores {
 
                     // CASO #3 MOSTRAMOS EL ARBOL DE LOS TRABAJADORES INSERTADOS
                     case 3:
+                    try {
                             System.out.println("\n\t+--+---CONSULTA DE TRABAJADORES-------+");
                             System.out.println("\t|1.| CONSULTA POR INORDEN             |");
                             System.out.println("\t|2.| CONSULTA POR PREORDEN            |");
@@ -156,14 +161,25 @@ public class Trabajadores {
                                 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 break;
 
-                            }
+                                default:
+                                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
+                                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
+                            }
                         } catch (InputMismatchException e) {
+                            System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
+                            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                            lector.readLine();
+                        }
+
+                    } catch (InputMismatchException e) {
                             System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             System.out.println("\t|     DEBES DE INTRODUCIR UN NUMERO   |");
                             System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                             lector.readLine();
-                        }
+                    }
                         
                         break;
 
@@ -257,6 +273,7 @@ public class Trabajadores {
                 lector.readLine();
             }
                 break;
+
             case 2:
                 boolean encontrado, si=true;
                 encontrado = false;
