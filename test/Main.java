@@ -84,11 +84,10 @@ public class Main {
                             System.out.println("\t          HAS INSERTADO CORRECTAMENTE        ");
                             System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-                        } catch (InputMismatchException e) {
+                        } catch (Exception e) {
                             System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                             System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                            lector.readLine();
                         }
 
                         break;
@@ -132,6 +131,7 @@ public class Main {
                                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                                 System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
                                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                                                aux = false; // regresar al menu
                                             }
                                         } catch (Exception e) {
                                             System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
@@ -200,18 +200,16 @@ public class Main {
                                         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
                                 }
-                            } catch (InputMismatchException e) {
+                            } catch (Exception e) {
                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                                lector.readLine();
                             }
 
-                        } catch (InputMismatchException e) {
+                        } catch (Exception e) {
                             System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             System.out.println("\t|     DEBES DE INTRODUCIR UN NUMERO   |");
                             System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                            lector.readLine();
                         }
 
                         break;
@@ -263,7 +261,6 @@ public class Main {
                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 System.out.println("\t|     DEBES DE INTRODUCIR UN NUMERO   |");
                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                // lector.readLine();
 
             }
 
@@ -389,11 +386,10 @@ public class Main {
 
                         }
 
-                    } catch (InputMismatchException e) {
+                    } catch (Exception e) {
                         System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                        lector.readLine();
                     }
                     break;
                 }
@@ -422,11 +418,11 @@ public class Main {
     }
 
     public static boolean respuesta() throws IOException {
-        System.out.println("\t+----+");
-        System.out.println("\t| SI |");
-        System.out.println("\t+----+");
-        System.out.println("\t| NO |");
-        System.out.println("\t+----+");
+        System.out.println("\t+--------------------------+");
+        System.out.println("\t|        INGRESAR SI       |");
+        System.out.println("\t+--------------------------+");
+        System.out.println("\t| INGRESAR CUALQUIER VALOR |");
+        System.out.println("\t+--------------------------+");
         String resp = lector.readLine();
         if (resp.equalsIgnoreCase("Si"))
             return true;
