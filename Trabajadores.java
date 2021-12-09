@@ -87,7 +87,6 @@ public class Trabajadores {
                             System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                             System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                            lector.readLine();
                         }
 
                         break;
@@ -192,30 +191,32 @@ public class Trabajadores {
                                                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                         break;
 
+                                    case 4:
+                                        System.out.println("\tREGRESANDO AL MENU ....");
+                                         break;
+
                                     default:
                                         System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                         System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
                                         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-
                                 }
+
                             } catch (Exception e) {
                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                                lector.readLine();
                             }
 
                         } catch (Exception e) {
                             System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             System.out.println("\t|     DEBES DE INTRODUCIR UN NUMERO   |");
                             System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                            lector.readLine();
                         }
-
                         break;
 
                     // CASO #4 MODIFICACION A LOS DATOS DE LOS TRABAJADORES
                     case 4:
+                    if (!arbolTrabajadores.esVacio()) {
                         boolean condicion = true;
                         while (condicion) {
                             try {
@@ -237,6 +238,12 @@ public class Trabajadores {
                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             }
                         }
+                    } else {
+                        System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("\t|   EL ARBOL SE ENCUENTRA VACIO       |");
+                        System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                        aux = false;
+                    }
                         break;
 
                     // CASO #5 CERRAR EL PROGRAMA
@@ -277,6 +284,7 @@ public class Trabajadores {
         System.out.println("\t|2.| CAMPO EN ESPECIFICO |");
         System.out.println("\t|3.| CANCELAR            |");
         System.out.println("\t+--+---------------------+");
+        try {
         int res = Integer.parseInt(lector.readLine());
         switch (res) {
             case 1:
@@ -383,23 +391,21 @@ public class Trabajadores {
                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-
+                            break;
                         }
-
+                        
                     } catch (Exception e) {
                         System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                        lector.readLine();
                     }
-                    break;
                 }
 
-                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~\n");
-                System.out.println("DESEA MODIFICAR OTRO DATO");
+                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~");
+                System.out.println("\tDESEA MODIFICAR OTRO DATO");
                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~\n");
                 si = respuesta();
-                break;
+                
 
                 case 3:
                 
@@ -412,17 +418,22 @@ public class Trabajadores {
                 break;
 
         }
+            }catch (Exception e) {
+            System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
+            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        }
 
         // System.out.println("!");
 
     }
 
     public static boolean respuesta() throws IOException {
-        System.out.println("\t+----+");
-        System.out.println("\t| SI |");
-        System.out.println("\t+----+");
-        System.out.println("\t| NO |");
-        System.out.println("\t+----+");
+        System.out.println("\t+--------------------------+");
+        System.out.println("\t|       INGRESAR SI        |");
+        System.out.println("\t+--------------------------+");
+        System.out.println("\t| INGRESAR CUALQUIER VALOR |");
+        System.out.println("\t+--------------------------+");
         String resp = lector.readLine();
         if (resp.equalsIgnoreCase("Si"))
             return true;
