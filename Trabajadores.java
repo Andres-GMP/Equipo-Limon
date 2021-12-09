@@ -439,7 +439,7 @@ public class Trabajadores {
         arbolTrabajadores.agregarNodo(new Trabajador("FZ", "E", "M", 19, "M", 9, 19, "ceo"));
         arbolTrabajadores.agregarNodo(new Trabajador("OGA", "E", "M", 19, "M", 11, 18, "ceo"));
         arbolTrabajadores.agregarNodo(new Trabajador("AER", "E", "M", 19, "M", 1, 18, "ceo"));
-        System.out.println("hola");
+        System.out.println("Trabajadores agregados Automaticamente...");
     }
 
 }
