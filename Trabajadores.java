@@ -207,7 +207,9 @@ public class Trabajadores {
                                     System.out.println("DESEA MODIFICAR LOS DATOS DE ALGUN OTRO TRABAJADOR");
                                     condicion = respuesta();
                                 } else {
-                                    System.out.println("El trabajador no existe");
+                                    System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                    System.out.println("\t|        EL TRABAJADOR NO EXISTE      |");
+                                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                                     condicion = false;
                                 }
 
