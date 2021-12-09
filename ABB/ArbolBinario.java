@@ -34,7 +34,7 @@ public class ArbolBinario {
      * 
      * @return boolean variable
      */
-    boolean esVacio() {
+    public boolean esVacio() {
         return raiz == null;
     }
 

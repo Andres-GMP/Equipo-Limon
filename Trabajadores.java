@@ -16,12 +16,6 @@ public class Trabajadores {
 
         ArrayList<Integer> idList = new ArrayList<Integer>();
         arbolTrabajadores.agregarNodo(new Trabajador("nom", "apeP", "apeM", 13, "gene", 6, 78, "pues"));
-        arbolTrabajadores.agregarNodo(new Trabajador("nom", "apeP", "apeM", 13, "gene", 8, 78, "pues"));
-        arbolTrabajadores.agregarNodo(new Trabajador("nom", "apeP", "apeM", 13, "gene", 1, 78, "pues"));
-        arbolTrabajadores.agregarNodo(new Trabajador("nom", "apeP", "apeM", 13, "gene", 43, 78, "pues"));
-        arbolTrabajadores.agregarNodo(new Trabajador("nom", "apeP", "apeM", 13, "gene", 2, 78, "pues"));
-        arbolTrabajadores.agregarNodo(new Trabajador("nom", "apeP", "apeM", 13, "gene", 63, 78, "pues"));
-        arbolTrabajadores.agregarNodo(new Trabajador("nom", "apeP", "apeM", 13, "gene", 9, 78, "pues"));
 
         int ide = 0;
         int opcion;
@@ -104,51 +98,57 @@ public class Trabajadores {
                     case 2:
                         boolean aux = true;
                         do {
+                            if (!arbolTrabajadores.esVacio()) {
+                                System.out.println("\n\tINTRODUCE EL ID DEL TRABAJADOR A ELIMINAR (4 DIGITOS)");
+                                ide = Integer.parseInt(lector.readLine());
 
-                            System.out.println("\n\tINTRODUCE EL ID DEL TRABAJADOR A ELIMINAR (4 DIGITOS)");
-                            ide = Integer.parseInt(lector.readLine());
+                                if (arbolTrabajadores.busqueda(ide) != null) {
+                                    if (aux) {
+                                        System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        System.out.println("\tESTAS SEGURO DE ELIMINAR AL TRABAJADOR ? (SI/NO)");
+                                        System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        String opciones = lector.readLine();
 
-                            if (arbolTrabajadores.busqueda(ide) != null) {
-                                if (aux) {
-                                    System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                    System.out.println("\tESTAS SEGURO DE ELIMINAR AL TRABAJADOR ? (SI/NO)");
-                                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                    String opciones = lector.readLine();
+                                        try {
+                                            if (opciones.equalsIgnoreCase("SI")) {
+                                                arbolTrabajadores.eliminarNodo(ide);
 
-                                    try {
-                                        if (opciones.equalsIgnoreCase("SI")) {
-                                            arbolTrabajadores.eliminarNodo(ide);
-
-                                            System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                            System.out.println("\t|   SE HA ELIMINADO CORRECTAMENTE     |");
-                                            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                                            System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                            System.out.println("\t|     Nueva lista de trabajadore:     |");
-                                            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                                            arbolTrabajadores.inOrden();
-                                            System.out.println();
-                                            System.out.println("DESEA ELIMINAR LOS DATOS DE ALGUN OTRO TRABAJADOR");
-                                            aux = respuesta();
-                                        } else if (opciones.equalsIgnoreCase("NO")) {
-                                            System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                            System.out.println("\t|      SE HA SALIDO DEL SISTEMA       |");
-                                            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                                        } else {
-                                            System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                            System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
-                                            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                                                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                                System.out.println("\t|   SE HA ELIMINADO CORRECTAMENTE     |");
+                                                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                                                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                                System.out.println("\t|     Nueva lista de trabajadore:     |");
+                                                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                                                arbolTrabajadores.inOrden();
+                                                System.out.println();
+                                                System.out.println("DESEA ELIMINAR LOS DATOS DE ALGUN OTRO TRABAJADOR");
+                                                aux = respuesta();
+                                            } else if (opciones.equalsIgnoreCase("NO")) {
+                                                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                                System.out.println("\t|      SE HA SALIDO DEL SISTEMA       |");
+                                                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                                            } else {
+                                                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                                System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
+                                                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                                            }
+                                        } catch (Exception e) {
+                                            System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
                                         }
-                                    } catch (Exception e) {
-                                        System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
                                     }
+                                } else {
+                                    System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                    System.out.println("\t|   EL TRABAJADOR CON EL ID: " + ide + " NO EXISTE   |");
+                                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                                    aux = false;
                                 }
+
                             } else {
-                                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                System.out.println("\t|   EL TRABAJADOR CON EL ID: " + ide + " NO EXISTE   |");
-                                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                System.out.println("\t|   El arbol se encuentra vacio        |");
+                                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                                 aux = false;
                             }
-
                         } while (aux);
                         break;
 
