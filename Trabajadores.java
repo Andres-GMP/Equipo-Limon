@@ -11,10 +11,17 @@ import limonproject.ABB.Nodo;
 public class Trabajadores {
     static BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
     static ArbolBinario arbolTrabajadores = new ArbolBinario();
+
     public static void main(String[] args) throws Exception, IOException {
 
         ArrayList<Integer> idList = new ArrayList<Integer>();
-        
+        arbolTrabajadores.agregarNodo(new Trabajador("nom", "apeP", "apeM", 13, "gene", 6, 78, "pues"));
+        arbolTrabajadores.agregarNodo(new Trabajador("nom", "apeP", "apeM", 13, "gene", 8, 78, "pues"));
+        arbolTrabajadores.agregarNodo(new Trabajador("nom", "apeP", "apeM", 13, "gene", 1, 78, "pues"));
+        arbolTrabajadores.agregarNodo(new Trabajador("nom", "apeP", "apeM", 13, "gene", 43, 78, "pues"));
+        arbolTrabajadores.agregarNodo(new Trabajador("nom", "apeP", "apeM", 13, "gene", 2, 78, "pues"));
+        arbolTrabajadores.agregarNodo(new Trabajador("nom", "apeP", "apeM", 13, "gene", 63, 78, "pues"));
+        arbolTrabajadores.agregarNodo(new Trabajador("nom", "apeP", "apeM", 13, "gene", 9, 78, "pues"));
 
         int ide = 0;
         int opcion;
@@ -103,12 +110,11 @@ public class Trabajadores {
                         System.out.println("\tESTAS SEGURO DE ELIMINAR AL TRABAJADOR ? (SI/NO)");
                         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         String opciones = lector.readLine();
-                        
 
                         try {
                             if (opciones.equals("SI")) {
-                                 arbolTrabajadores.eliminarNodo(ide);
-                                 
+                                arbolTrabajadores.eliminarNodo(ide);
+
                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 System.out.println("\t|   SE HA ELIMINADO CORRECTAMENTE     |");
                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
@@ -128,75 +134,87 @@ public class Trabajadores {
 
                     // CASO #3 MOSTRAMOS EL ARBOL DE LOS TRABAJADORES INSERTADOS
                     case 3:
-                    try {
+                        try {
                             System.out.println("\n\t+--+---CONSULTA DE TRABAJADORES-------+");
                             System.out.println("\t|1.| CONSULTA POR INORDEN             |");
                             System.out.println("\t|2.| CONSULTA POR PREORDEN            |");
                             System.out.println("\t|3.| CONSULTA POR POSTORDEN           |");
                             System.out.println("\t|4.| REGRESAR AL MENU PRINCIPAL       |");
                             System.out.println("\t+--+----------------------------------+");
-                        
+
                             try {
-                            System.out.println("\t|        SELECCIONA UNA OPCION        |");
-                            System.out.println("\t+--+----------------------------------+");
-                            opcion = Integer.parseInt(lector.readLine());
-                            
-                            switch (opcion) {
+                                System.out.println("\t|        SELECCIONA UNA OPCION        |");
+                                System.out.println("\t+--+----------------------------------+");
+                                opcion = Integer.parseInt(lector.readLine());
 
-                                case 1:
-                                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES POR INORDEN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                arbolTrabajadores.inOrden();
-                                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                break;
+                                switch (opcion) {
 
-                                case 2:
-                                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES POR PREORDEN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                arbolTrabajadores.preOrden();
-                                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                break;
+                                    case 1:
+                                        System.out.println(
+                                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES POR INORDEN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        arbolTrabajadores.inOrden();
+                                        System.out.println(
+                                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        break;
 
-                                case 3:
-                                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES POR POSTORDEN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                arbolTrabajadores.postOrden();
-                                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                break;
+                                    case 2:
+                                        System.out.println(
+                                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES POR PREORDEN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        arbolTrabajadores.preOrden();
+                                        System.out.println(
+                                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        break;
 
-                                default:
-                                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
-                                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                                    case 3:
+                                        System.out.println(
+                                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSULTA DE TRABAJADORES POR POSTORDEN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        arbolTrabajadores.postOrden();
+                                        System.out.println(
+                                                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        break;
 
+                                    default:
+                                        System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                        System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
+                                        System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
+                                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                                lector.readLine();
                             }
-                        } catch (InputMismatchException e) {
-                            System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                            System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
-                            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                            lector.readLine();
-                        }
 
-                    } catch (InputMismatchException e) {
+                        } catch (InputMismatchException e) {
                             System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             System.out.println("\t|     DEBES DE INTRODUCIR UN NUMERO   |");
                             System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                             lector.readLine();
-                    }
-                        
+                        }
+
                         break;
 
                     // CASO #4 MODIFICACION A LOS DATOS DE LOS TRABAJADORES
                     case 4:
-                    boolean condicion = true;
-                    while(condicion){
-                        try {
-                            System.out.println("\n\tINTRODUCE EL ID DEL TRABAJADOR A MODIFICAR (4 DIGITOS)");
-                            ide = Integer.parseInt(lector.readLine());
-                            editar(ide);
-                            System.out.println("DESEA MODIFICAR LOS DATOS DE ALGUN OTRO TRABAJADOR");
-                            condicion=respuesta();
-                        } catch (Exception e) {
-                            System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
+                        boolean condicion = true;
+                        while (condicion) {
+                            try {
+                                System.out.println("\n\tINTRODUCE EL ID DEL TRABAJADOR A MODIFICAR (4 DIGITOS)");
+                                ide = Integer.parseInt(lector.readLine());
+                                if (arbolTrabajadores.busqueda(ide) != null) {
+                                    editar(ide);
+                                    System.out.println("DESEA MODIFICAR LOS DATOS DE ALGUN OTRO TRABAJADOR");
+                                    condicion = respuesta();
+                                } else {
+                                    System.out.println("El trabajador no existe");
+                                    condicion = false;
+                                }
+
+                            } catch (Exception e) {
+                                System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
+                            }
                         }
-                    }
                         break;
 
                     // CASO #5 CERRAR EL PROGRAMA
@@ -204,8 +222,8 @@ public class Trabajadores {
                         salir = true;
                         break;
                     case 6:
-                    trabajdoresPrueba(); 
-                    break; 
+                        trabajdoresPrueba();
+                        break;
                     default:
                         System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
@@ -223,66 +241,63 @@ public class Trabajadores {
 
         }
 
-        System.out.println("xd");
-
     }
 
-    //METODO PARA MODIFICAR
-    public static void editar(int id) throws Exception{
+    // METODO PARA MODIFICAR
+    public static void editar(int id) throws Exception {
         Nodo actual = arbolTrabajadores.busqueda(id);
         System.out.println("¿DESEA MODIFICAR TODOS LOS DATOS O SOLO UN CAMPO?");
         System.out.println("\t+--+---------------------+");
         System.out.println("\t|1.| TODOS LOS DATOS     |");
         System.out.println("\t|2.| CAMPO EN ESPECIFICO |");
-        System.out.println("\t|3.| CANCELAR            |"); 
+        System.out.println("\t|3.| CANCELAR            |");
         System.out.println("\t+--+---------------------+");
-        int res = Integer.parseInt(lector.readLine()); 
+        int res = Integer.parseInt(lector.readLine());
         switch (res) {
             case 1:
-            try {
-                System.out.println("\n\tINTRODUCIR TU NOMBRE");
-                String nom = lector.readLine();
+                try {
+                    System.out.println("\n\tINTRODUCIR TU NOMBRE");
+                    String nom = lector.readLine();
 
-                System.out.println("\tINTRODUCIR TU APELLIDO PATERNO");
-                String apeP = lector.readLine();
+                    System.out.println("\tINTRODUCIR TU APELLIDO PATERNO");
+                    String apeP = lector.readLine();
 
-                System.out.println("\tINTRODUCIR TU APELLIDO MATERNO");
-                String apeM = lector.readLine();
+                    System.out.println("\tINTRODUCIR TU APELLIDO MATERNO");
+                    String apeM = lector.readLine();
 
-                System.out.println("\tINTRODUCIR TU EDAD");
-                int edad = Integer.parseInt(lector.readLine());
+                    System.out.println("\tINTRODUCIR TU EDAD");
+                    int edad = Integer.parseInt(lector.readLine());
 
-                System.out.println("\tINTRODUCIR TU GENERO");
-                String gene = lector.readLine();
+                    System.out.println("\tINTRODUCIR TU GENERO");
+                    String gene = lector.readLine();
 
-                System.out.println("\tINTRODUCIR TU SUELDO");
-                double suel = Double.parseDouble(lector.readLine());
+                    System.out.println("\tINTRODUCIR TU SUELDO");
+                    double suel = Double.parseDouble(lector.readLine());
 
-                System.out.println("\tINTRODUCIR TU PUESTO");
-                String pues = lector.readLine();
+                    System.out.println("\tINTRODUCIR TU PUESTO");
+                    String pues = lector.readLine();
 
-                // INSERTAMOS AL ARBOL LA INFORMACIÓN ACTUALIZADA DE UN TRABAJADOR
-                arbolTrabajadores.modificar(id,new Trabajador(nom, apeP, apeM, edad, gene, id, suel, pues));
-                
-                System.out.println("\tDATOS MODIFICADOS CORRECTAMENTE");
+                    // INSERTAMOS AL ARBOL LA INFORMACIÓN ACTUALIZADA DE UN TRABAJADOR
+                    arbolTrabajadores.modificar(id, new Trabajador(nom, apeP, apeM, edad, gene, id, suel, pues));
 
-            } catch (InputMismatchException e) {
-                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
-                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                lector.readLine();
-            }
+                    System.out.println("\tDATOS MODIFICADOS CORRECTAMENTE");
+
+                } catch (InputMismatchException e) {
+                    System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
+                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                    lector.readLine();
+                }
                 break;
 
             case 2:
-                boolean encontrado, si=true;
+                boolean encontrado, si = true;
                 encontrado = false;
 
-                // while(si){               
+                // while(si){
                 encontrado = (actual.valorNodo()).getId() == id;
-                
-                if(encontrado)
-                {
+
+                if (encontrado) {
                     System.out.println("\tQUE APARTADO DESEAS MODIFICAR?");
                     System.out.println("\t+--+------------+");
                     System.out.println("\t|1.| NOMBRE     |");
@@ -293,114 +308,110 @@ public class Trabajadores {
                     System.out.println("\t|6.| SUELDO     |");
                     System.out.println("\t|7.| PUESTO     |");
                     System.out.println("\t+--+------------+");
-    
-                    
-                    try{
-                            int opciones = Integer.parseInt(lector.readLine());
-                              
-                            switch(opciones){
-                                case 1:
+
+                    try {
+                        int opciones = Integer.parseInt(lector.readLine());
+
+                        switch (opciones) {
+                            case 1:
                                 System.out.println("\n\tMODIFICA TU NOMBRE");
-                                String nom  = lector.readLine();
+                                String nom = lector.readLine();
                                 (arbolTrabajadores.busqueda(id).valorNodo()).setNombre(nom);
                                 break;
-                                
-                                case 2:
+
+                            case 2:
                                 System.out.println("\tMODIFICA TU APELLIDO PATERNO");
-                                String apeP  = lector.readLine();
+                                String apeP = lector.readLine();
                                 (arbolTrabajadores.busqueda(id).valorNodo()).setApellidoPaterno(apeP);
                                 break;
-    
-                                case 3:
+
+                            case 3:
                                 System.out.println("\tMODIFICA TU APELLIDO MATERNO");
-                                String apeM  = lector.readLine();
+                                String apeM = lector.readLine();
                                 (arbolTrabajadores.busqueda(id).valorNodo()).setApellidoMaterno(apeM);
                                 break;
-    
-                                case 4:
+
+                            case 4:
                                 System.out.println("\tMODIFICA TU EDAD");
                                 int edad = Integer.parseInt(lector.readLine());
                                 (arbolTrabajadores.busqueda(id).valorNodo()).setEdad(edad);
                                 break;
-    
-                                case 5:
+
+                            case 5:
                                 System.out.println("\tMODIFICA TU GENERO");
                                 String gene = lector.readLine();
-                                (arbolTrabajadores.busqueda(id).valorNodo()).setGenero(gene);                                
+                                (arbolTrabajadores.busqueda(id).valorNodo()).setGenero(gene);
                                 break;
-    
-                                case 6:
+
+                            case 6:
                                 System.out.println("\tMODIFICA TU SUELDO");
                                 double suel = Double.parseDouble(lector.readLine());
                                 (arbolTrabajadores.busqueda(id).valorNodo()).setSueldo(suel);
                                 break;
-    
-                                case 7:
+
+                            case 7:
                                 System.out.println("\tMODIFICA TU PUESTO");
                                 String pues = lector.readLine();
                                 (arbolTrabajadores.busqueda(id).valorNodo()).setPuesto(pues);
                                 break;
-    
-                                default:
+
+                            default:
                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-    
-                            }
-                        
-    
-                    }catch(InputMismatchException e ){
+
+                        }
+
+                    } catch (InputMismatchException e) {
                         System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                         lector.readLine();
-                                }
-                        break;
+                    }
+                    break;
                 }
-                
+
                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~\n");
                 System.out.println("DESEA MODIFICAR OTRO DATO");
-                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~\n");                    
-                    si = respuesta();
+                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~\n");
+                si = respuesta();
                 // }
                 break;
 
-                case 3:
-                
+            case 3:
+
                 break;
 
-                
-                default:    
-                    System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
-                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                           break;
-         
+            default:
+                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
+                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                break;
+
         }
-        
-        
+
         // System.out.println("!");
-        
 
     }
 
-    public static boolean respuesta() throws IOException{
-                    System.out.println("\t+--+----+");
-                    System.out.println("\t|1.| SI |");
-                    System.out.println("\t|2.| NO |");
-                    System.out.println("\t+--+----+");
-                    String resp = lector.readLine();
-                    if(resp.equalsIgnoreCase("Si"))
-                        return true;
-                    else if(!resp.equalsIgnoreCase("No")){
-                        return false;
-                    } 
-                        System.out.println("(SI/NO)");
-                        lector.readLine();
-                        // respuesta();
-                    return false;
+    public static boolean respuesta() throws IOException {
+        System.out.println("\t+--+----+");
+        System.out.println("\t|1.| SI |");
+        System.out.println("\t|2.| NO |");
+        System.out.println("\t+--+----+");
+        String resp = lector.readLine();
+        if (resp.equalsIgnoreCase("Si"))
+            return true;
+        else if (!resp.equalsIgnoreCase("No")) {
+            return false;
+        }
+        System.out.println("(SI/NO)");
+        lector.readLine();
+        // respuesta();
+        return false;
     }
-    public static void trabajdoresPrueba(){
+
+    public static void trabajdoresPrueba() {
         arbolTrabajadores.agregarNodo(new Trabajador("AER", "E", "M", 19, "M", 10, 20, "ceo"));
         arbolTrabajadores.agregarNodo(new Trabajador("FZ", "E", "M", 19, "M", 9, 19, "ceo"));
         arbolTrabajadores.agregarNodo(new Trabajador("OGA", "E", "M", 19, "M", 11, 18, "ceo"));
