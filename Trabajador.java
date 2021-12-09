@@ -53,9 +53,11 @@ public class Trabajador extends Persona {
                                 + getEdad() + ") " + getGenero() + "  $" + getSueldo() + " [" + getPuesto() + "]";
         }
 
-        public Trabajador clone(){
-                // String nombre, String apellidoPaterno, String apellidoMaterno, int edad, String genero,
-                //         int id, double sueldo, String puesto
-                return new Trabajador(this.getNombre(),this.getApellidoPaterno(), this.getApellidoMaterno(), this.getEdad(), this.getGenero(), this.id, this.sueldo, this.puesto);
+        public Trabajador clone() {
+                // String nombre, String apellidoPaterno, String apellidoMaterno, int edad,
+                // String genero,
+                // int id, double sueldo, String puesto
+                return new Trabajador(this.getNombre(), this.getApellidoPaterno(), this.getApellidoMaterno(),
+                                this.getEdad(), this.getGenero(), this.id, this.sueldo, this.puesto);
         }
 }

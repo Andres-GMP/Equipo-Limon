@@ -21,6 +21,8 @@ public class Nodo {
         this.der = null;
     }
 
+    
+
     /**
      * Método constructor que inicializa todas las variables
      * 
@@ -64,10 +66,6 @@ public class Nodo {
         }
     }
 
-    /**
-     * @Override
-     * @param newData
-     */
     public void insertar(Nodo newData) {
         if ((newData.dato).getId() < this.dato.getId()) {
             if (izq == null)
@@ -81,6 +79,7 @@ public class Nodo {
                 der.insertar(newData);
         }
     }
+
 
     /**
      * Regresa el valor del nodo
@@ -134,9 +133,6 @@ public class Nodo {
         this.der = der;
     }
 
-    /**
-     * Este método clona el
-     */
     public Nodo clone() {
         if (this.der == null && this.izq == null)
             return new Nodo(null, this.dato.clone(), null);

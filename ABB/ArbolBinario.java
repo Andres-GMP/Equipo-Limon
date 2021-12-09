@@ -34,7 +34,7 @@ public class ArbolBinario {
      * 
      * @return boolean variable
      */
-    boolean esVacio() {
+    public boolean esVacio() {
         return raiz == null;
     }
 
@@ -58,7 +58,7 @@ public class ArbolBinario {
      * 
      * @param raiz
      */
-    public void inOrden(){
+    public void inOrden() {
         inOrden(raiz);
     }
 
@@ -79,7 +79,7 @@ public class ArbolBinario {
      * @param raiz
      */
 
-    public void preOrden(){
+    public void preOrden() {
         preOrden(raiz);
     }
 
@@ -100,7 +100,7 @@ public class ArbolBinario {
      * @param raiz
      */
 
-    public void postOrden(){
+    public void postOrden() {
         postOrden(raiz);
     }
 
@@ -129,11 +129,9 @@ public class ArbolBinario {
                 aux = aux.der;
             }
             if (aux == null) {
-                System.out.println("Dato no encontrado");
                 return null;
             }
         }
-        // System.out.println("Dato encontrado");
         return aux;
     }
 
@@ -206,34 +204,5 @@ public class ArbolBinario {
         return x;
 
     }
-
-    // public void agregarNodo(Trabajador elemento, ArbolBinario busqueda) {
-    // Nodo nuevo = new Nodo(elemento);
-    // if (raiz == null) {
-    // raiz = nuevo;
-    // } else {
-    // Nodo aux = raiz;
-    // Nodo papa;
-    // while (true) {
-    // papa = aux;
-    // if (Integer.parseInt((elemento).toString()) <
-    // Integer.parseInt((aux.dato).toString())) {
-    // aux = aux.izq;
-    // if (aux == null) {
-    // papa.izq = nuevo;
-    // return;
-    // }
-    // } else {
-    // aux = aux.der;
-    // if (aux == null) {
-    // papa.der = nuevo;
-    // return;
-    // }
-    // }
-
-    // }
-
-    // }
-    // }
 }
-// xd
+
