@@ -21,6 +21,9 @@ public class Nodo {
         this.der = null;
     }
 
+    public Nodo() {
+    }
+
     /**
      * Método constructor que inicializa todas las variables
      * 
@@ -43,6 +46,20 @@ public class Nodo {
         } else if (newData.getId() > this.dato.getId()) {
             if (der == null)
                 der = new Nodo(newData);
+            else
+                der.insertar(newData);
+        }
+    }
+
+    public void insertar(Nodo newData) {
+        if ((newData.dato).getId() < this.dato.getId()) {
+            if (izq == null)
+                izq = newData;
+            else
+                izq.insertar(newData);
+        } else if ((newData.dato).getId() > this.dato.getId()) {
+            if (der == null)
+                der = newData;
             else
                 der.insertar(newData);
         }
@@ -98,5 +115,18 @@ public class Nodo {
      */
     public void ramaDcho(Nodo der) {
         this.der = der;
+    }
+
+    public Nodo clone() {
+        if (this.der == null && this.izq == null)
+            return new Nodo(null, this.dato.clone(), null);
+
+        if (this.izq == null) {
+            return new Nodo(null, this.dato.clone(), this.der.clone());
+        }
+        if (this.der == null) {
+            return new Nodo(this.izq.clone(), this.dato.clone(), null);
+        }
+        return new Nodo(this.izq.clone(), this.dato.clone(), this.der.clone());
     }
 }

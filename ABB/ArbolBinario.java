@@ -162,24 +162,47 @@ public class ArbolBinario {
     // Eliminar un TRABAJADOR....
 
     public Nodo eliminarNodo(int datoEliminar) throws IOException {
-        Nodo eliminar = busqueda(datoEliminar);
-
-        if (eliminar == null) {
-            return null;
+        Nodo aux = this.raiz;
+        Nodo anterior = new Nodo();
+        // System.out.println(aux.valorNodo().getId());
+        while (aux.valorNodo().getId() != datoEliminar) {
+            anterior = aux;
+            if (datoEliminar < aux.valorNodo().getId()) {
+                aux = aux.izq;
+            } else {
+                aux = aux.der;
+            }
+            if (aux == null) {
+                return null;
+            }
         }
-        Nodo izq, der;
 
-        izq = eliminar.izq;
-        der = eliminar.der;
+        Nodo x = aux.clone();
+        if (anterior.dato != null) {
+            if (anterior.dato.getId() > aux.dato.getId())
+                anterior.izq = null;
+            else
+                anterior.der = null;
 
-        eliminar = null;
+            if (x.izq != null)
+                anterior.insertar(x.izq);
+            if (x.der != null)
+                anterior.insertar(x.der);
+        } else {
+            if (x.izq != null) {
+                this.raiz = anterior = x.izq;
+                if (x.der != null)
+                    x.izq.insertar(x.der);
+            } else if (x.der != null) {
+                this.raiz = anterior = x.der;
+                if (x.izq != null)
+                    x.der.insertar(x.izq);
+            } else {
+                this.raiz = null;
+            }
+        }
 
-        if (izq != null)
-            this.raiz.insertar(izq.valorNodo());
-        if (der != null)
-            this.raiz.insertar(der.valorNodo());
-
-        return null;
+        return x;
 
     }
 }
