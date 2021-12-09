@@ -207,14 +207,16 @@ public class Trabajadores {
                                     System.out.println("DESEA MODIFICAR LOS DATOS DE ALGUN OTRO TRABAJADOR");
                                     condicion = respuesta();
                                 } else {
-                                    System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                    System.out.println("\t|        EL TRABAJADOR NO EXISTE      |");
-                                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                                    System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                    System.out.println("\t|   EL TRABAJADOR CON EL ID: " + ide + " NO EXISTE   |" );
+                                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                                     condicion = false;
                                 }
 
                             } catch (Exception e) {
+                                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
+                                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             }
                         }
                         break;
