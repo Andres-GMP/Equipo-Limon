@@ -15,8 +15,6 @@ public class Trabajadores {
     public static void main(String[] args) throws Exception, IOException {
 
         ArrayList<Integer> idList = new ArrayList<Integer>();
-        arbolTrabajadores.agregarNodo(new Trabajador("nom", "apeP", "apeM", 13, "gene", 6, 78, "pues"));
-
         int ide = 0;
         int opcion;
         boolean salir = false;
@@ -117,16 +115,17 @@ public class Trabajadores {
                                                 System.out.println("\t|   SE HA ELIMINADO CORRECTAMENTE     |");
                                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                                System.out.println("\t|     Nueva lista de trabajadore:     |");
+                                                System.out.println("\t|     NUEVA LISTA DE TRABAJADORES:    |");
                                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                                                 arbolTrabajadores.inOrden();
                                                 System.out.println();
-                                                System.out.println("DESEA ELIMINAR LOS DATOS DE ALGUN OTRO TRABAJADOR");
+                                                System.out.println("\n\tDESEA ELIMINAR LOS DATOS DE ALGUN OTRO TRABAJADOR");
                                                 aux = respuesta();
                                             } else if (opciones.equalsIgnoreCase("NO")) {
                                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                                 System.out.println("\t|      SE HA SALIDO DEL SISTEMA       |");
                                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                                                aux = false; //regresar al menu
                                             } else {
                                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                                 System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
@@ -145,7 +144,7 @@ public class Trabajadores {
 
                             } else {
                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                System.out.println("\t|   El arbol se encuentra vacio        |");
+                                System.out.println("\t|   EL ARBOL SE ENCUENTRA VACIO       |");
                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                                 aux = false;
                             }
@@ -224,7 +223,7 @@ public class Trabajadores {
                                 ide = Integer.parseInt(lector.readLine());
                                 if (arbolTrabajadores.busqueda(ide) != null) {
                                     editar(ide);
-                                    System.out.println("DESEA MODIFICAR LOS DATOS DE ALGUN OTRO TRABAJADOR");
+                                    System.out.println("\n\tDESEA MODIFICAR LOS DATOS DE ALGUN OTRO TRABAJADOR");
                                     condicion = respuesta();
                                 } else {
                                     System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -244,10 +243,13 @@ public class Trabajadores {
                     // CASO #5 CERRAR EL PROGRAMA
                     case 5:
                         salir = true;
+                        System.out.println("\tSALIENDO DEL SISTEMA ....");
+                        System.out.println("");
                         break;
                     case 6:
                         trabajdoresPrueba();
-                        break;
+                    break;
+
                     default:
                         System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
@@ -267,7 +269,7 @@ public class Trabajadores {
 
     }
 
-    // METODO PARA MODIFICAR
+    // METODO PARA EDITAR UN TRABAJADOR
     public static void editar(int id) throws Exception {
         Nodo actual = arbolTrabajadores.busqueda(id);
         System.out.println("¿DESEA MODIFICAR TODOS LOS DATOS O SOLO UN CAMPO?");
@@ -402,8 +404,8 @@ public class Trabajadores {
                 // }
                 break;
 
-            case 3:
-
+                case 3:
+                
                 break;
 
             default:
@@ -419,19 +421,17 @@ public class Trabajadores {
     }
 
     public static boolean respuesta() throws IOException {
-        System.out.println("\t+--+----+");
-        System.out.println("\t|1.| SI |");
-        System.out.println("\t|2.| NO |");
-        System.out.println("\t+--+----+");
+        System.out.println("\t+----+");
+        System.out.println("\t| SI |");
+        System.out.println("\t+----+");
+        System.out.println("\t| NO |");
+        System.out.println("\t+----+");
         String resp = lector.readLine();
         if (resp.equalsIgnoreCase("Si"))
             return true;
-        else if (!resp.equalsIgnoreCase("No")) {
+        else if (resp.equalsIgnoreCase("No")) {
             return false;
         }
-        System.out.println("(SI/NO)");
-        lector.readLine();
-        // respuesta();
         return false;
     }
 
