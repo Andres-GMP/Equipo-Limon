@@ -272,7 +272,7 @@ public class Trabajadores {
     // METODO PARA EDITAR UN TRABAJADOR
     public static void editar(int id) throws Exception {
         Nodo actual = arbolTrabajadores.busqueda(id);
-        System.out.println("¿DESEA MODIFICAR TODOS LOS DATOS O SOLO UN CAMPO?");
+        System.out.println("\t¿DESEA MODIFICAR TODOS LOS DATOS O SOLO UN CAMPO?");
         System.out.println("\t+--+---------------------+");
         System.out.println("\t|1.| TODOS LOS DATOS     |");
         System.out.println("\t|2.| CAMPO EN ESPECIFICO |");
@@ -308,11 +308,10 @@ public class Trabajadores {
 
                     System.out.println("\tDATOS MODIFICADOS CORRECTAMENTE");
 
-                } catch (InputMismatchException e) {
+                } catch (Exception e) {
                     System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                     System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                    lector.readLine();
                 }
                 break;
 
