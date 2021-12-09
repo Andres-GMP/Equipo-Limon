@@ -42,6 +42,7 @@ public class Nodo {
         der = null;
     }
 
+    //metodo que nos elimina un dato con sus referencias 
     public void delete() {
         dato = null;
         izq = null;
@@ -66,6 +67,7 @@ public class Nodo {
         }
     }
 
+    //Nos inserta un dato de trabajador en un nodo para construir el arbol
     public void insertar(Nodo newData) {
         if ((newData.dato).getId() < this.dato.getId()) {
             if (izq == null)
