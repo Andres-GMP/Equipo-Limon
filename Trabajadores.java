@@ -233,7 +233,7 @@ public class Trabajadores {
                                 }
                             } catch (Exception e) {
                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
+                                System.out.println("\n\t NO SE ENCONTRO EL ID DEL TRABAJADOR ");
                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             }
                         }
