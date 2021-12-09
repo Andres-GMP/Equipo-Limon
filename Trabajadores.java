@@ -233,11 +233,11 @@ public class Trabajadores {
 
                 }
 
-            } catch (InputMismatchException e) {
+            } catch (Exception e) {
                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 System.out.println("\t|     DEBES DE INTRODUCIR UN NUMERO   |");
                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                lector.readLine();
+                // lector.readLine();
 
             }
 
