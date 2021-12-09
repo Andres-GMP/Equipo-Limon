@@ -443,10 +443,12 @@ public class Trabajadores {
     }
 
     public static void trabajdoresPrueba() {
-        arbolTrabajadores.agregarNodo(new Trabajador("AER", "E", "M", 19, "M", 10, 20, "ceo"));
-        arbolTrabajadores.agregarNodo(new Trabajador("FZ", "E", "M", 19, "M", 9, 19, "ceo"));
-        arbolTrabajadores.agregarNodo(new Trabajador("OGA", "E", "M", 19, "M", 11, 18, "ceo"));
-        arbolTrabajadores.agregarNodo(new Trabajador("AER", "E", "M", 19, "M", 1, 18, "ceo"));
+        arbolTrabajadores.agregarNodo(new Trabajador("Axel", "Enciso", "Robles", 19, "Masculino", 10, 20000, "DESARROLLADOR"));
+        arbolTrabajadores.agregarNodo(new Trabajador("Fucheng", "Zhou", "", 20, "M", 9, 25000, "SECRETARIO"));
+        arbolTrabajadores.agregarNodo(new Trabajador("Oscar", "Anguiano", "Gonzalez", 19, "M", 11, 18000, "VENTAS"));
+        arbolTrabajadores.agregarNodo(new Trabajador("Andres", "Gonzalez", "Martinez", 19, "M", 1, 4000, "VENTAS"));
+        arbolTrabajadores.agregarNodo(new Trabajador("Omar", "Millan", "Valenzuela", 20, "M", 3, 4000, "RHH"));
+        arbolTrabajadores.agregarNodo(new Trabajador("Pablo", "Palma", "Garcia", 20, "M", 4, 4000, "CEO"));
         System.out.println("Trabajadores agregados Automaticamente...");
     }
 
