@@ -83,7 +83,7 @@ public class Trabajadores {
                             System.out.println("\t          HAS INSERTADO CORRECTAMENTE        ");
                             System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-                        } catch (InputMismatchException e) {
+                        } catch (Exception e) {
                             System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                             System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
@@ -198,14 +198,14 @@ public class Trabajadores {
                                         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
                                 }
-                            } catch (InputMismatchException e) {
+                            } catch (Exception e) {
                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                                 lector.readLine();
                             }
 
-                        } catch (InputMismatchException e) {
+                        } catch (Exception e) {
                             System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             System.out.println("\t|     DEBES DE INTRODUCIR UN NUMERO   |");
                             System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
@@ -231,7 +231,6 @@ public class Trabajadores {
                                     System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                                     condicion = false;
                                 }
-
                             } catch (Exception e) {
                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
@@ -387,7 +386,7 @@ public class Trabajadores {
 
                         }
 
-                    } catch (InputMismatchException e) {
+                    } catch (Exception e) {
                         System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
@@ -400,7 +399,6 @@ public class Trabajadores {
                 System.out.println("DESEA MODIFICAR OTRO DATO");
                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~\n");
                 si = respuesta();
-                // }
                 break;
 
                 case 3:
