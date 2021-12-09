@@ -87,7 +87,6 @@ public class Trabajadores {
                             System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                             System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                            lector.readLine();
                         }
 
                         break;
@@ -216,6 +215,7 @@ public class Trabajadores {
 
                     // CASO #4 MODIFICACION A LOS DATOS DE LOS TRABAJADORES
                     case 4:
+                    if (!arbolTrabajadores.esVacio()) {
                         boolean condicion = true;
                         while (condicion) {
                             try {
@@ -237,6 +237,12 @@ public class Trabajadores {
                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             }
                         }
+                    } else {
+                        System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("\t|   EL ARBOL SE ENCUENTRA VACIO       |");
+                        System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                        aux = false;
+                    }
                         break;
 
                     // CASO #5 CERRAR EL PROGRAMA
