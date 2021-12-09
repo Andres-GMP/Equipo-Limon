@@ -443,6 +443,7 @@ public class Main {
         arbolTrabajadores.agregarNodo(new Trabajador("Andres", "Gonzalez", "Martinez", 19, "M", 5, 4000, "VENTAS"));
         arbolTrabajadores.agregarNodo(new Trabajador("Omar", "Millan", "Valenzuela", 20, "M", 3, 4000, "RHH"));
         arbolTrabajadores.agregarNodo(new Trabajador("Pablo", "Palma", "Garcia", 20, "M", 6, 4000, "CEO"));
+        arbolTrabajadores.agregarNodo(new Trabajador("jULANITO", "Palma", "Garcia", 20, "M", 12, 4000, "CEO"));
         System.out.println("Trabajadores agregados Automaticamente...");
     }
 
