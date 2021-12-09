@@ -129,6 +129,7 @@ public class Trabajadores {
                                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                                 System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
                                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                                                
                                             }
                                         } catch (Exception e) {
                                             System.out.println("\n\t NO EXISTE EL ID DEL TRABAJADOR ");
@@ -233,14 +234,15 @@ public class Trabajadores {
                                     condicion = false;
                                 }
                             } catch (Exception e) {
-                                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                System.out.println("\n\t NO SE ENCONTRO EL ID DEL TRABAJADOR ");
-                                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                System.out.println("\t NO SE ENCONTRO EL ID DEL TRABAJADOR ");
+                                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                condicion = false;
                             }
                         }
                     } else {
                         System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        System.out.println("\t|   EL ARBOL SE ENCUENTRA VACIO       |");
+                        System.out.println("\t|    EL ARBOL SE ENCUENTRA VACIO      |");
                         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                         aux = false;
                     }
@@ -313,7 +315,9 @@ public class Trabajadores {
                     // INSERTAMOS AL ARBOL LA INFORMACIÓN ACTUALIZADA DE UN TRABAJADOR
                     arbolTrabajadores.modificar(id, new Trabajador(nom, apeP, apeM, edad, gene, id, suel, pues));
 
+                    System.out.println("\t+------------------------------+");
                     System.out.println("\tDATOS MODIFICADOS CORRECTAMENTE");
+                    System.out.println("\t+------------------------------+");
 
                 } catch (Exception e) {
                     System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -401,12 +405,6 @@ public class Trabajadores {
                     }
                 }
 
-                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~");
-                System.out.println("\tDESEA MODIFICAR OTRO DATO");
-                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~\n");
-                si = respuesta();
-                
-
                 case 3:
                 return;
 
@@ -414,7 +412,7 @@ public class Trabajadores {
                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                break;
+            break;
 
         }
             }catch (Exception e) {
