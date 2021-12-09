@@ -287,6 +287,7 @@ public class Main {
         System.out.println("\t|2.| CAMPO EN ESPECIFICO |");
         System.out.println("\t|3.| CANCELAR            |");
         System.out.println("\t+--+---------------------+");
+        try {
         int res = Integer.parseInt(lector.readLine());
         switch (res) {
             case 1:
@@ -412,8 +413,8 @@ public class Main {
                 break;
 
             case 3:
-
-                break;
+            System.out.println("\tSALIENDO AL MENU ....");
+            break;
 
             default:
                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -422,8 +423,12 @@ public class Main {
                 break;
 
         }
+    } catch (Exception e) {
+        System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
+        System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    }
 
-        // System.out.println("!");
 
     }
 
