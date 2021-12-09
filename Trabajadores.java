@@ -277,6 +277,7 @@ public class Trabajadores {
         System.out.println("\t|2.| CAMPO EN ESPECIFICO |");
         System.out.println("\t|3.| CANCELAR            |");
         System.out.println("\t+--+---------------------+");
+        try {
         int res = Integer.parseInt(lector.readLine());
         switch (res) {
             case 1:
@@ -383,23 +384,21 @@ public class Trabajadores {
                                 System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 System.out.println("\t|      ESTA OPCION NO ES VALIDA       |");
                                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-
+                            break;
                         }
-
+                        
                     } catch (Exception e) {
                         System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
                         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                        lector.readLine();
                     }
-                    break;
                 }
 
-                System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~\n");
-                System.out.println("DESEA MODIFICAR OTRO DATO");
+                System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~");
+                System.out.println("\tDESEA MODIFICAR OTRO DATO");
                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~\n");
                 si = respuesta();
-                break;
+                
 
                 case 3:
                 
@@ -411,6 +410,11 @@ public class Trabajadores {
                 System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                 break;
 
+        }
+            }catch (Exception e) {
+            System.out.println("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("\t| DEBES DE INTRODUCIR DEL TIPO DE DATO QUE SE SOLICITA |");
+            System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         }
 
         // System.out.println("!");
